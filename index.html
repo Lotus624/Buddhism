@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> The Book of Pāli Grammar — 16-Week Interactive Course</title>
+<meta name="description" content="Pāli Basic for Buddhist Studies — a complete 16-week interactive Pāli grammar course: declensions, conjugations, sandhi, and readings from the Tipiṭaka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#28231a;
+  --ink-soft:#5c5546;
+  --paper:#f5f2e8;
+  --paper-deep:#ece7d6;
+  --folio:#fbf9f1;
+  --night:#20263d;
+  --night-deep:#161b2d;
+  --night-line:#39415e;
+  --gold:#c0912c;
+  --gold-soft:#e7d8ab;
+  --gold-faint:#f3ead2;
+  --rubric:#a03a28;
+  --rubric-soft:#f0ddd5;
+  --bodhi:#3f6350;
+  --bodhi-soft:#dde7dd;
+  --line:#ddd4bd;
+  --shadow:0 1px 2px rgba(40,35,26,.06),0 8px 28px -12px rgba(40,35,26,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.15}
+.pl,.pali{font-family:'Gentium Book Plus',serif}
+a{color:var(--bodhi)}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--rubric)}
+.eyebrow.gold{color:var(--gold)}
+
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(22,27,45,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--night-line)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;color:#f3eeda;text-decoration:none}
+.brand svg{flex:none}
+.brand .b1{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;letter-spacing:.02em;line-height:1}
+.brand .b2{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#b7ab86;line-height:1;margin-top:3px}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links button{background:none;border:0;color:#c9c2a9;font-size:13.5px;font-weight:500;padding:8px 13px;border-radius:8px;transition:.15s}
+.nav-links button:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav-links button.on{color:#f4e9c8;background:rgba(192,145,44,.18)}
+.nav-prog{display:flex;align-items:center;gap:8px;color:#b7ab86;font-size:12px;font-weight:600;white-space:nowrap}
+.nav-prog .bar{width:72px;height:5px;background:rgba(255,255,255,.14);border-radius:99px;overflow:hidden}
+.nav-prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#e2b95d);border-radius:99px;transition:width .5s}
+.hamb{display:none;background:none;border:1px solid var(--night-line);border-radius:8px;color:#e8e2cc;padding:7px 10px;font-size:15px}
+@media(max-width:900px){
+  .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--night-deep);flex-direction:column;align-items:stretch;padding:10px 16px 16px;border-bottom:1px solid var(--night-line)}
+  .nav-links.open{display:flex}
+  .nav-links button{text-align:left;padding:12px 14px}
+  .hamb{display:block}
+  .nav-prog .lbl{display:none}
+}
+
+/* ---------- HERO ---------- */
+.hero{background:radial-gradient(1200px 600px at 78% -10%,#2b3352 0%,var(--night) 45%,var(--night-deep) 100%);color:#efe9d4;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.wheel{position:absolute;right:-140px;top:-140px;opacity:.16;pointer-events:none;animation:spin 240s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.wheel{animation:none}*{scroll-behavior:auto!important;transition:none!important}}
+.hero-inner{position:relative;padding:78px 0 64px}
+.hero h1{font-size:clamp(38px,5.6vw,64px);font-weight:600;color:#fbf7ea;max-width:760px;margin:18px 0 8px}
+.hero h1 em{font-style:italic;color:#e9cd8f}
+.hero .lede{max-width:640px;color:#c9c2a9;font-size:17px;margin-bottom:30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;font-weight:600;font-size:14.5px;padding:13px 22px;border:0;text-decoration:none;transition:.15s}
+.btn-gold{background:linear-gradient(180deg,#d5a63e,var(--gold));color:#241c08;box-shadow:0 6px 18px -6px rgba(192,145,44,.55)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 10px 22px -6px rgba(192,145,44,.65)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#e8e2cc;border:1px solid var(--night-line)}
+.btn-ghost:hover{background:rgba(255,255,255,.11)}
+.btn-paper{background:var(--night);color:#f1ecd8}
+.btn-paper:hover{background:#2b3352}
+/* interlinear quote — signature element */
+.inter{border-top:1px solid var(--night-line);padding-top:30px;max-width:820px}
+.inter .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9b8f66;margin-bottom:14px;display:block}
+.inter .line{display:flex;flex-wrap:wrap;gap:4px 10px}
+.inter .w{position:relative;font-family:'Gentium Book Plus',serif;font-size:clamp(20px,3vw,28px);color:#f2e7c4;padding:2px 4px;border-radius:6px;cursor:default;transition:.15s}
+.inter .w:hover,.inter .w:focus{background:rgba(192,145,44,.16);color:#ffe9ad;outline:none}
+.inter .w span{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%) translateY(-4px);background:#0f1322;border:1px solid var(--night-line);color:#d9d2b8;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;white-space:nowrap;padding:6px 11px;border-radius:8px;opacity:0;pointer-events:none;transition:.18s;z-index:5}
+.inter .w:hover span,.inter .w:focus span{opacity:1;transform:translateX(-50%) translateY(0)}
+.inter .trans{margin-top:14px;color:#b0a785;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:19px}
+.inter .src{color:#7e7455;font-size:12px;margin-top:4px}
+.hero-stats{display:flex;gap:0;margin-top:44px;border:1px solid var(--night-line);border-radius:14px;overflow:hidden;max-width:820px;background:rgba(255,255,255,.03)}
+.hero-stats>div{flex:1;padding:16px 20px;border-left:1px solid var(--night-line)}
+.hero-stats>div:first-child{border-left:0}
+.hero-stats b{display:block;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:#eddfb2;line-height:1.1}
+.hero-stats span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#948a68}
+@media(max-width:640px){.hero-stats{flex-wrap:wrap}.hero-stats>div{flex:1 1 50%;border-top:1px solid var(--night-line)}.hero-stats>div:nth-child(-n+2){border-top:0}.hero-stats>div:nth-child(odd){border-left:0}}
+
+/* ---------- SECTION SHELLS ---------- */
+section.page{display:none;padding:56px 0 90px}
+section.page.on{display:block}
+.sec-head{max-width:720px;margin-bottom:36px}
+.sec-head h2{font-size:clamp(30px,4vw,42px);margin:10px 0 10px}
+.sec-head p{color:var(--ink-soft)}
+
+/* ---------- CURRICULUM: folio strip ---------- */
+.cord{position:relative}
+.cord::before{content:"";position:absolute;left:-8px;right:-8px;top:88px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 14px,transparent 14px 22px);opacity:.5}
+@media(max-width:760px){.cord::before{display:none}}
+.folio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;position:relative}
+.folio{background:var(--folio);border:1px solid var(--line);border-radius:4px 14px 14px 4px;border-left:4px solid var(--gold-soft);box-shadow:var(--shadow);padding:20px 20px 16px;display:flex;flex-direction:column;gap:10px;text-align:left;transition:.18s;position:relative;color:var(--ink)}
+.folio:hover{transform:translateY(-3px);border-left-color:var(--gold);box-shadow:0 4px 6px rgba(40,35,26,.05),0 18px 38px -14px rgba(40,35,26,.28)}
+.folio .top{display:flex;justify-content:space-between;align-items:baseline}
+.folio .wk{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--rubric);font-weight:700}
+.folio .pg{font-size:11px;color:#9a916f;font-weight:600}
+.folio h3{font-size:21px;line-height:1.22}
+.folio .topics{font-size:13px;color:var(--ink-soft);flex:1}
+.folio .sut{font-size:12px;color:var(--bodhi);font-style:italic;font-family:'Gentium Book Plus',serif;border-top:1px dashed var(--line);padding-top:9px}
+.folio .state{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600;color:#9a916f}
+.folio .state .done-ic{width:19px;height:19px;border-radius:50%;border:1.6px solid var(--line);display:inline-flex;align-items:center;justify-content:center;color:transparent;font-size:11px;transition:.15s}
+.folio.done{border-left-color:var(--bodhi)}
+.folio.done .done-ic{background:var(--bodhi);border-color:var(--bodhi);color:#fff}
+.folio.done .wk{color:var(--bodhi)}
+.prog-strip{display:flex;align-items:center;gap:14px;background:var(--folio);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:26px;box-shadow:var(--shadow)}
+.prog-strip .bar{flex:1;height:8px;border-radius:99px;background:var(--paper-deep);overflow:hidden}
+.prog-strip .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--bodhi),#6f9b7f);transition:width .5s;border-radius:99px}
+.prog-strip b{font-size:13px;white-space:nowrap}
+
+/* ---------- WEEK DETAIL ---------- */
+.wk-head{background:linear-gradient(160deg,var(--night) 0%,var(--night-deep) 100%);color:#efe9d4;border-radius:18px;padding:34px 34px 30px;margin-bottom:34px;position:relative;overflow:hidden}
+.wk-head::after{content:attr(data-n);position:absolute;right:22px;top:-26px;font-family:'Cormorant Garamond',serif;font-size:150px;font-weight:700;color:rgba(192,145,44,.14);line-height:1}
+.wk-head .eyebrow{color:#d9b45c}
+.wk-head h2{font-size:clamp(28px,4vw,40px);color:#faf5e6;margin:8px 0 6px;max-width:720px}
+.wk-head .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#b3aa87;margin-top:12px}
+.wk-head .meta b{color:#e6dcba;font-weight:600}
+.wk-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.wk-tools .btn{padding:10px 16px;font-size:13px}
+.toggle{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);border:1px solid var(--night-line);color:#e6dcba;border-radius:10px;padding:10px 16px;font-size:13px;font-weight:600}
+.toggle .sw{width:32px;height:18px;border-radius:99px;background:#39415e;position:relative;transition:.2s}
+.toggle .sw::after{content:"";position:absolute;left:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#cfc6a4;transition:.2s}
+.toggle.on .sw{background:var(--gold)}
+.toggle.on .sw::after{left:16px;background:#241c08}
+.lesson{background:var(--folio);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:26px 28px;margin-bottom:22px}
+.lesson>.l-head{display:flex;gap:14px;align-items:baseline;margin-bottom:14px}
+.lesson>.l-head .no{font-family:'Cormorant Garamond',serif;color:var(--rubric);font-weight:700;font-size:15px;letter-spacing:.06em;white-space:nowrap}
+.lesson>.l-head h3{font-size:24px}
+.lesson p{color:#463f31;margin-bottom:12px;max-width:78ch}
+.lesson p:last-child{margin-bottom:0}
+.lesson ul.plain{margin:0 0 12px 20px;color:#463f31}
+.lesson ul.plain li{margin-bottom:5px}
+.note{background:var(--gold-faint);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:#5d4c22;margin:14px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.chip{background:var(--paper-deep);border:1px solid var(--line);border-radius:99px;padding:5px 13px;font-size:13.5px}
+.chip .pl{font-weight:700}
+.chip small{color:var(--ink-soft)}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:16px 0;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+caption{caption-side:top;text-align:left;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;color:#3c3423;padding:12px 14px 8px;background:var(--gold-faint)}
+td.pl{font-size:15.5px}
+thead th{background:var(--paper-deep);text-align:left;padding:10px 14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6d6345;border-bottom:2px solid var(--gold-soft);white-space:nowrap}
+tbody td{padding:9px 14px;border-bottom:1px solid #efeadb;vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even){background:#fbf9f2}
+td.case{font-weight:600;white-space:nowrap}
+td.case small{display:block;font-weight:500;color:#988d6a;font-size:11px}
+td.pl{font-family:'Gentium Book Plus',serif;font-size:15.5px;color:#3c3423}
+td.mean{color:var(--ink-soft)}
+.practice td.pl{position:relative}
+.practice td.pl:not(.shown){color:transparent;text-shadow:none;cursor:pointer}
+.practice td.pl:not(.shown)::after{content:"tap to reveal";position:absolute;inset:6px 10px;background:var(--gold-faint);border:1px dashed var(--gold-soft);border-radius:7px;color:#a5924f;font-family:'Inter',sans-serif;font-size:10.5px;display:flex;align-items:center;justify-content:center;letter-spacing:.08em;text-transform:uppercase}
+.practice td.pl.shown{background:#fdf6e3}
+
+/* sutta blocks */
+.sutta{background:linear-gradient(180deg,#fdfbf3,#f8f4e6);border:1px solid var(--gold-soft);border-radius:14px;padding:22px 24px;margin:18px 0;position:relative}
+.sutta::before{content:"❝";position:absolute;top:10px;right:18px;font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--gold-soft)}
+.sutta .s-src{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:10px}
+.sutta .s-pali{font-family:'Gentium Book Plus',serif;font-size:19px;color:#33291a;line-height:1.7;margin-bottom:10px}
+.sutta .s-en{color:var(--ink-soft);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:17.5px}
+.sutta a{font-size:12.5px;font-weight:600;display:inline-block;margin-top:10px}
+.wk-foot{display:flex;justify-content:space-between;gap:12px;margin-top:34px;flex-wrap:wrap}
+.mark-btn{background:var(--bodhi);color:#fff;border:0;border-radius:10px;padding:13px 22px;font-weight:600;font-size:14px}
+.mark-btn.undone{background:var(--paper-deep);color:var(--ink);border:1px solid var(--line)}
+.pn{display:flex;gap:10px}
+.pn button{background:var(--folio);border:1px solid var(--line);border-radius:10px;padding:12px 18px;font-weight:600;font-size:13.5px;color:var(--ink)}
+.pn button:hover:not(:disabled){border-color:var(--gold)}
+.pn button:disabled{opacity:.4;cursor:default}
+.crumb{background:none;border:0;color:var(--bodhi);font-weight:600;font-size:13.5px;margin-bottom:18px;padding:0}
+.crumb:hover{text-decoration:underline}
+
+/* ---------- ALPHABET ---------- */
+.alpha-grid{display:grid;grid-template-columns:280px 1fr;gap:20px}
+@media(max-width:860px){.alpha-grid{grid-template-columns:1fr}}
+.alpha-side{background:var(--folio);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow);align-self:start}
+.alpha-side .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9a916f;font-weight:700;padding:4px 8px 10px;display:block}
+.alpha-side button{display:block;width:100%;text-align:left;background:none;border:0;border-radius:9px;padding:11px 13px;font-size:14px;font-weight:600;color:var(--ink-soft);transition:.12s}
+.alpha-side button:hover{background:var(--paper-deep)}
+.alpha-side button.on{background:var(--night);color:#f1e9ce}
+.alpha-main{background:var(--folio);border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:var(--shadow)}
+.letter-grid{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.letter{background:#fff;border:1px solid var(--gold-soft);border-radius:10px;min-width:56px;padding:10px 8px;text-align:center;font-family:'Gentium Book Plus',serif;font-size:22px;color:#3c3423;box-shadow:0 2px 0 var(--gold-faint)}
+.letter small{display:block;font-family:'Inter',sans-serif;font-size:9.5px;color:#a4996f;letter-spacing:.06em;margin-top:2px}
+.vowel-band{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px}
+.vowel-band .letter{border-color:#cdd9cd;box-shadow:0 2px 0 var(--bodhi-soft)}
+.pron-list{columns:2;column-gap:34px;font-size:14px;color:#463f31}
+@media(max-width:700px){.pron-list{columns:1}}
+.pron-list li{break-inside:avoid;margin-bottom:7px;list-style:none;border-bottom:1px dotted var(--line);padding-bottom:6px}
+.pron-list .pl{font-size:16.5px;font-weight:700;color:var(--rubric)}
+
+/* ---------- REFERENCE + RESOURCES ---------- */
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.ref-card{background:var(--folio);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.ref-card h3{font-size:21px;margin-bottom:6px}
+.ref-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:10px}
+.res-card{display:flex;gap:16px;align-items:flex-start;background:var(--folio);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.res-card .ic{width:42px;height:42px;flex:none;border-radius:11px;background:var(--night);color:#eddfb2;display:flex;align-items:center;justify-content:center;font-size:19px}
+.res-card h3{font-size:20px}
+.res-card p{font-size:13.5px;color:var(--ink-soft);margin:3px 0 8px}
+.res-card a{font-size:13px;font-weight:600;word-break:break-all}
+
+footer{background:var(--night-deep);color:#8d8464;padding:40px 0;font-size:13px;border-top:1px solid var(--night-line)}
+footer .f-in{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:#cfc6a4;font-weight:600}
+footer .pl{color:#b8a878;font-style:italic}
+::selection{background:var(--gold-soft)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#" onclick="go('home');return false">
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="18" stroke="#c0912c" stroke-width="2"/><circle cx="20" cy="20" r="4.5" fill="#c0912c"/><g stroke="#c0912c" stroke-width="2"><line x1="20" y1="2" x2="20" y2="15"/><line x1="20" y1="25" x2="20" y2="38"/><line x1="2" y1="20" x2="15" y2="20"/><line x1="25" y1="20" x2="38" y2="20"/><line x1="7.3" y1="7.3" x2="16.4" y2="16.4"/><line x1="23.6" y1="23.6" x2="32.7" y2="32.7"/><line x1="32.7" y1="7.3" x2="23.6" y2="16.4"/><line x1="16.4" y1="23.6" x2="7.3" y2="32.7"/></g></svg>
+      <span><span class="b1">Pāli Pathways</span><br><span class="b2">DPBS · 2026</span></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <button data-nav="home" class="on" onclick="go('home')">Home</button>
+      <button data-nav="curriculum" onclick="go('curriculum')">16-Week Curriculum</button>
+      <button data-nav="alphabet" onclick="go('alphabet')">Alphabet</button>
+      <button data-nav="reference" onclick="go('reference')">Quick Reference</button>
+      <button data-nav="resources" onclick="go('resources')">Resources</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="nav-prog"><span class="lbl" id="progLbl">0 / 16</span><span class="bar"><i id="progBarTop"></i></span></div>
+      <button class="hamb" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<section class="page on" id="page-home">
+  <div class="hero" style="margin-top:-56px">
+    <svg class="wheel" width="520" height="520" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="18" stroke="#c0912c" stroke-width=".8"/><circle cx="20" cy="20" r="12" stroke="#c0912c" stroke-width=".5"/><circle cx="20" cy="20" r="3" fill="#c0912c"/><g stroke="#c0912c" stroke-width=".8"><line x1="20" y1="2" x2="20" y2="38"/><line x1="2" y1="20" x2="38" y2="20"/><line x1="7.3" y1="7.3" x2="32.7" y2="32.7"/><line x1="32.7" y1="7.3" x2="7.3" y2="32.7"/></g></svg>
+    <div class="wrap hero-inner">
+      <span class="eyebrow gold">Pāli Basic for Beginers</span>
+      <h1> <em>Pāli Grammar </em></h1>
+      <p class="lede">The complete Book of Pāli Grammar, restructured as an interactive 16-week course — 41 lessons that take you from the alphabet to reading suttas directly from the Tipiṭaka, with every example drawn from the canon itself.</p>
+      <div class="hero-cta">
+        <button class="btn btn-gold" onclick="openWeek(1)">Begin Week 1</button>
+        <button class="btn btn-ghost" onclick="go('curriculum')">Browse the curriculum</button>
+      </div>
+      <div class="inter">
+        <span class="tag">Hover each word — the course motto, from the Buddhavaṃsa</span>
+        <div class="line" id="motto"></div>
+        <div class="trans">"Firmly take up your energy — do not turn back; keep moving forward."</div>
+        <div class="src">Buddhavaṃsapāḷi · Khuddaka Nikāya</div>
+      </div>
+      <div class="hero-stats">
+        <div><b>16</b><span>Weeks</span></div>
+        <div><b>41</b><span>Lessons</span></div>
+        <div><b>30+</b><span>Paradigm tables</span></div>
+        <div><b>20+</b><span>Sutta readings</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-top:64px">
+    <div class="sec-head">
+      <span class="eyebrow">The Method</span>
+      <h2>Grammar in service of reading</h2>
+      <p>Every week pairs one grammatical layer — a declension, a tense, a class of particles — with a genuine passage from the Suttas or commentaries, so the grammar is never abstract: it is always the key to a real sentence spoken 2,500 years ago.</p>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card"><h3>① Nāma — Nouns</h3><p>Nine cases, three genders, two numbers. Weeks 2–12 walk through every stem class — <span class="pl">-a, -i, -ī, -u, -ū, -o, -ā</span> — masculine, feminine and neuter, plus all the pronouns.</p></div>
+      <div class="ref-card"><h3>② Ākhyāta — Verbs</h3><p>Present (<span class="pl">Vattamānā</span>), past (<span class="pl">Ajjatanī</span>), future (<span class="pl">Bhavissanti</span>), imperative (<span class="pl">Pañcamī</span>) and optative (<span class="pl">Sattamī</span>), with roots, absolutives and infinitives.</p></div>
+      <div class="ref-card"><h3>③ Upasagga — Prefixes</h3><p>The twenty verbal prefixes and how <span class="pl">√hara</span> becomes <em>brings, uses, destroys, lives</em> — the engine of Pāli vocabulary, mastered in Week 10.</p></div>
+      <div class="ref-card"><h3>④ Nipāta — Indeclinables</h3><p>Particles, adverbs and euphonic combination (<span class="pl">sandhi</span>) — the glue of the language and the final key to parsing canonical text, Weeks 8, 15 &amp; 16.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CURRICULUM ================= -->
+<section class="page" id="page-curriculum">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Course Map</span>
+      <h2>The 16-week path</h2>
+      <p>Each folio below is one week of the Book of Pāli Grammar. Work through them in order — complete the week's lessons, read the sutta passage, then mark the folio complete.</p>
+    </div>
+    <div class="prog-strip"><b id="progTxt">0 of 16 weeks complete</b><span class="bar"><i id="progBar"></i></span><b id="progPct">0%</b></div>
+    <div class="cord"><div class="folio-grid" id="folioGrid"></div></div>
+  </div>
+</section>
+
+<!-- ================= WEEK DETAIL ================= -->
+<section class="page" id="page-week"><div class="wrap" id="weekBody"></div></section>
+
+<!-- ================= ALPHABET ================= -->
+<section class="page" id="page-alphabet">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Week 1 Foundation</span>
+      <h2>The Pāli alphabet — 41 syllables</h2>
+      <p>Pāli has 8 vowels and 33 consonants. Consonants are arranged in five groups (<span class="pl">vagga</span>) by where in the mouth they are produced. Select a group to study its letters.</p>
+    </div>
+    <div style="margin-bottom:22px">
+      <span class="eyebrow gold" style="color:var(--bodhi)">Vowels — Sara (8)</span>
+      <div class="vowel-band">
+        <div class="letter">a<small>short</small></div><div class="letter">ā<small>long</small></div>
+        <div class="letter">i<small>short</small></div><div class="letter">ī<small>long</small></div>
+        <div class="letter">u<small>short</small></div><div class="letter">ū<small>long</small></div>
+        <div class="letter">e<small>long*</small></div><div class="letter">o<small>long*</small></div>
+      </div>
+      <div class="note"><b>a, i, u</b> are short; the rest long. <b>e</b> and <b>o</b>, though long, sound short before a double consonant — <span class="pl">mettā, okkamati, seṭṭhī</span>.</div>
+    </div>
+    <div class="alpha-grid">
+      <div class="alpha-side">
+        <span class="lab">Articulation groups (vagga)</span>
+        <div id="vaggaBtns"></div>
+      </div>
+      <div class="alpha-main">
+        <h3 id="vgTitle" style="font-size:24px"></h3>
+        <p id="vgDesc" style="color:var(--ink-soft);font-size:14px;margin-top:4px"></p>
+        <div class="letter-grid" id="vgLetters"></div>
+        <div class="note" style="margin-top:6px"><b>In the canon:</b> <span class="pl" id="vgEx" style="font-size:16px"></span></div>
+      </div>
+    </div>
+    <div class="lesson" style="margin-top:26px">
+      <div class="l-head"><span class="no">GUIDE</span><h3>Pronunciation of every letter</h3></div>
+      <ul class="pron-list" id="pronList"></ul>
+      <div class="note">Also: <b>j, n, p, b, m, r, l, v, h</b> are pronounced just as in English. <b>ṃ</b> (niggahīta) sounds like <i>ng</i> in "sing".</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REFERENCE ================= -->
+<section class="page" id="page-reference"><div class="wrap" id="refBody"></div></section>
+
+<!-- ================= RESOURCES ================= -->
+<section class="page" id="page-resources">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Study Companions</span>
+   </div>
+    <div class="ref-grid">
+      <div class="res-card"><div class="ic">📖</div><div><h3>Digital Pāḷi Dictionary</h3><p>Look up any inflected form — DPD parses declensions and conjugations automatically. Required from Week 1.</p><a href="https://dpdict.net/?q=buddho" target="_blank" rel="noopener">dpdict.net</a></div></div>
+      <div class="res-card"><div class="ic">🔍</div><div><h3>Tipiṭaka Theravāda Search</h3><p>Full-text search of the canon — used to trace every grammatical form back to real sutta occurrences.</p><a href="https://tipitaka.theravada.su" target="_blank" rel="noopener">tipitaka.theravada.su</a></div></div>
+      <div class="res-card"><div class="ic">🪷</div><div><h3>SuttaCentral</h3><p>Parallel Pāli–English texts of the suttas cited weekly, from the Maṅgala Sutta to the Māgaṇḍiya Sutta.</p><a href="https://suttacentral.net" target="_blank" rel="noopener">suttacentral.net</a></div></div>
+    </div>
+   </div>
+</section>
+
+<footer>
+  <div class="f-in">
+    <div><b>Pāli Pathways</b> </div>
+    <div class="pl">"daḷhaṃ paggaṇha vīriyaṃ, mā nivatta abhikkama."</div>
+  </div>
+</footer>
+<script>
+/* ===================== DATA ===================== */
+const CASES=[
+["Paṭhamā","Nominative — subject (who?)"],
+["Ālapana","Vocative — addressing (O!)"],
+["Dutiyā","Accusative — object (whom / what?)"],
+["Tatiyā","Instrumental / abl. of agent (by)"],
+["Karaṇa","Abl. of instrument (with / through)"],
+["Catutthī","Dative (to / for)"],
+["Pañcamī","Abl. of separation (from / off)"],
+["Chaṭṭhī","Genitive (of / possession)"],
+["Sattamī","Locative (in / on / at)"]];
+function decl(title,sg,pl,note){return{k:'decl',title,sg,pl,note}}
+function tbl(title,head,rows,pali,note){return{k:'tbl',title,head,rows,pali:pali||[],note}}
+function p(html){return{k:'p',html}}
+function h(no,title){return{k:'h',no,title}}
+function note(html){return{k:'note',html}}
+function vocab(title,items){return{k:'vocab',title,items}}
+function sutta(src,pali,en,link){return{k:'sutta',src,pali,en,link}}
+function list(items){return{k:'list',items}}
+
+const WEEKS=[
+/* ---------------- WEEK 1 ---------------- */
+{n:1,title:"Introduction, Alphabet & the Classification of Words",pages:"5–10",
+ source:"Maṅgala Sutta · Sn (KN) — The Discourse on Blessings",
+ topics:"What Pāli is · pronunciation of the 41 syllables · nāma, liṅga, vacana & vibhatti",
+ lessons:["1. An Introduction to the Pāli Language","2. Pāli Alphabet – Pronunciation","3. Pāli Nouns: Classification of Pāli words"],
+ secs:[
+ h("Lesson 1","An Introduction to the Pāli Language"),
+ p("Pāli is an ancient Middle Indo-Aryan language, closely related to Sanskrit, and the language of the canonical scriptures of Theravāda Buddhism. It is primarily used in the <b>Tipiṭaka</b> (Pāli Canon), which preserves the teachings of the Buddha."),
+ p("<b>Key features.</b> Its grammar is simpler than Sanskrit — no dual forms and fewer complex conjugations. Much vocabulary parallels Sanskrit with slight modification (<span class='pl'>Dharma → Dhamma</span>). Though no longer spoken, Pāli is used for religious purposes across Theravāda countries and studied worldwide. Originally oral, it is now written in Roman, Devanāgarī, Sinhala and other scripts."),
+ tbl("First words in Pāli",["Pāli","Meaning"],[["Buddha","The Enlightened One"],["Dhamma","Teachings"],["Saṅgha","Monastic community"],["Mettā","Loving-kindness"],["Nibbāna","Liberation, Enlightenment"]],[0]),
+ p("<b>Why learn Pāli?</b> To read the scriptures in their original form without relying on translations; to grasp concepts such as <span class='pl'>Nibbāna</span> and <span class='pl'>Paṭicca-samuppāda</span> in their own linguistic context; to deepen meditation practice through texts like the <span class='pl'>Satipaṭṭhāna Sutta</span>; to strengthen linguistic skill; and to open academic pathways in Buddhist Studies."),
+ tbl("Basic sentence structure — Subject + Object + Verb",["Pāli","Analysis"],[["Buddho dhammaṃ deseti.","Buddho (S — the Buddha) + dhammaṃ (O — the Dhamma) + deseti (V — preaches)"],["Sāmaṇero dhammaṃ bhāsati.","The novice monk speaks the Dhamma."],["Buddhena dhammo desito.","The Dhamma is taught by the Buddha — instrumental case Buddhena, 'by the Buddha'."]],[0]),
+ tbl("Forming questions",["Question word","Meaning","Canonical example"],[["Kiṃ?","What?","Taṃ kiṃ maññatha Bhaddiya? — What do you think, Bhaddiya?"],["Ko?","Who?","Ko eso? — Who is this?"],["Kathaṃ?","How?","So kathaṃ viharati? — How does he dwell?"],["Kasmā?","Why?","Kasmā dukkhaṃ? — Why is there suffering?"]],[0]),
+ h("Lesson 2","Pāli Alphabet — 41 syllables"),
+ p("Pāli contains <b>8 vowels</b> (a, ā, i, ī, u, ū, e, o) and <b>33 consonants</b>, grouped by point of articulation. Study the full interactive chart and pronunciation guide on the <b>Alphabet</b> page — it belongs to this week's work."),
+ tbl("The five articulation groups (vagga)",["Group","Produced at","Letters","Canonical examples"],[["Guttural","Back of the mouth (throat)","k · kh · g · gh · ṅ","Kamma (action), Gati (destiny)"],["Palatal","Middle of tongue at the palate","c · ch · j · jh · ñ","Citta (mind), Jāti (birth)"],["Retroflex","Tip of tongue curled up","ṭ · ṭh · ḍ · ḍh · ṇ","Patiṭṭhā (support), Saraṇaṃ (refuge)"],["Dental","Tip of tongue against teeth","t · th · d · dh · n","Tathāgata, Dhamma, Dukkha"],["Labial","The lips","p · ph · b · bh · m","Paññā (wisdom), Buddhaṃ, Phalaṃ (fruit)"]],[2]),
+ h("Lesson 3","Classification of Pāli words — liṅga, nāma, vacana & vibhatti"),
+ p("English counts eight parts of speech; Pāli grammarians classify all of them under <b>four</b>:"),
+ list(["<b>Nāma</b> — noun (pronouns and adjectives are included here, since they decline like nouns)","<b>Ākhyāta</b> — verb","<b>Upasagga</b> — prefix","<b>Nipāta</b> — indeclinable particle (conjunctions, prepositions, adverbs and all other indeclinables)"]),
+ tbl("Gender, number and case",["Category","Pāli","Members"],[["Gender (liṅga)","Pulliṅga · Itthiliṅga · Napuṃsakaliṅga","Masculine · Feminine · Neuter"],["Number (vacana)","Ekavacana · Bahuvacana","Singular · Plural"],["Case (vibhatti)","Nine cases","See table below"]],[1]),
+ note("Gender in Pāli is <b>grammatical</b>, not natural: <span class='pl'>rukkha</span> (tree) and <span class='pl'>canda</span> (moon) are masculine; <span class='pl'>nadī</span> (river) and <span class='pl'>paññā</span> (wisdom) feminine; <span class='pl'>citta</span> (mind) neuter. Synonyms can differ — <span class='pl'>pāsāṇa</span> (m.) and <span class='pl'>silā</span> (f.) both mean stone — and one word may hold two genders, e.g. <span class='pl'>geha</span> (house, m./nt.)."),
+ tbl("The nine cases (vibhatti)",["#","Pāli name","English","Function"],CASES.map((c,i)=>[String(i+1),c[0],c[1].split("—")[0].trim(),(c[1].split("—")[1]||c[1]).trim()]),[1]),
+ sutta("Maṅgala Sutta · Sn — KN (the week's reading)","Bahū devā manussā ca, maṅgalāni acintayuṃ … Dānañca dhammacariyā ca, ñātakānañca saṅgaho; anavajjāni kammāni, etaṃ maṅgalamuttamaṃ.","Many gods and humans have pondered on blessings… Giving, righteous conduct, kindness to relatives, blameless deeds: this is the highest blessing.","https://suttacentral.net/kp5/en/sujato"),
+]},
+/* ---------------- WEEK 2 ---------------- */
+{n:2,title:"-a Masculine Nouns & the Present Tense",pages:"11–19",
+ source:"Ariyapariyesana Sutta (MN) · Mahāsatipaṭṭhāna Sutta (DN)",
+ topics:"Declensions of Buddha, rāja, atta · usage of the noun cases · Vattamānā conjugation",
+ lessons:["4. Declension of -a ending masc. 'Buddha' & usage of cases","5. Declension of 'rāja'","6. Declension of 'atta'","7. Verb Conjugation I — Present Tense (Vattamānā)"],
+ secs:[
+ h("Lesson 4","Declension of the -a masculine noun 'Buddha'"),
+ p("Masculine stems ending in <b>-a</b> are the largest and most important class of Pāli nouns. Learn the case endings first, then the full paradigm of <span class='pl'>Buddha</span> — every other -a masculine noun follows it exactly."),
+ tbl("Case endings of -a masculine stems",["Case","Singular ending","Plural ending"],[["Paṭhamā (Nom.)","-o","-ā"],["Ālapana (Voc.)","-a / -ā","-ā"],["Dutiyā (Acc.)","-ṃ","-e"],["Tatiyā (Abl. of agent)","-ena","-ebhi / -ehi"],["Karaṇa (Abl. of instrument)","-ena","-ebhi / -ehi"],["Catutthī (Dat.)","-āya / -ssa","-ānaṃ"],["Pañcamī (Abl. of separation)","-ā / -smā / -mhā","-ebhi / -ehi"],["Chaṭṭhī (Gen.)","-ssa","-ānaṃ"],["Sattamī (Loc.)","-e / -mhi / -smiṃ","-esu"]],[1,2]),
+ decl("Full paradigm — Buddha (the Buddha)",
+  ["Buddho","Buddha / Buddhā","Buddhaṃ","Buddhena","Buddhena","Buddhāya / Buddhassa","Buddhā / Buddhamhā / Buddhasmā","Buddhassa","Buddhe / Buddhamhi / Buddhasmiṃ"],
+  ["Buddhā","(Bhavanto) Buddhā","Buddhe","Buddhebhi / Buddhehi","Buddhebhi / Buddhehi","Buddhānaṃ","Buddhebhi / Buddhehi","Buddhānaṃ","Buddhesu"],
+  "So too: <span class='pl'>manusso, manussaṃ, manussena, manussassa, manusse…</span> — any -a masculine stem."),
+ vocab("Stems similarly declined",[["dhamma","doctrine"],["saṅgha","community"],["purisa","man"],["manussa","human being"],["hattha","hand"],["pāda","foot"],["kāya","body"],["rukkha","tree"],["pāsāṇa","rock"],["gāma","village"],["loka","world"],["ākāsa","sky"],["suriya","sun"],["canda","moon"],["magga","path"],["putta","son"],["kumāra","boy"],["vāṇija","merchant"],["cora","thief"],["mitta","friend"],["bhūpāla","king"],["kassaka","farmer"],["deva","deity"],["vihāra","monastery"],["dīpa","island; lamp"],["āhāra","food"],["sīha","lion"],["miga","deer"],["assa","horse"],["goṇa","ox"],["sunakha","dog"],["sakuṇa","bird"],["aja","goat"],["kāka","crow"]]),
+ h("Lesson 5","Declension of 'rāja' (king) — irregular -a stem"),
+ decl("rāja (king)",
+  ["rājā","rāja / rājā","rājānaṃ / rājaṃ","raññā / rājena","raññā / rājena","rañño / rājino","raññā / rājamhā / rājasmā","rañño / rājino","raññe / rājini / rājamhi / rājasmiṃ"],
+  ["rājāno","rājāno","rājāno","rājūbhi / rājūhi / rājebhi / rājehi","rājūbhi / rājūhi","raññaṃ / rājūnaṃ / rājānaṃ","rājūbhi / rājūhi / rājehi","raññaṃ / rājūnaṃ / rājānaṃ","rājūsu / rājesu"]),
+ sutta("Rathakāra Vagga · AN — The chapter of the Threes","Bhūtapubbaṃ, bhikkhave, rājā ahosi sacetano nāma. Atha kho, bhikkhave, rājā sacetano rathakāraṃ āmantesi…","Once upon a time, monks, there was a king named Pacetana. Then King Pacetana addressed his chariot-maker…","https://suttacentral.net/an3.15/en/sujato"),
+ sutta("Gabbhinī Sutta · Udānapāḷi (KN)","Tena kho pana samayena rañño pasenadissa kosalassa koṭṭhāgāre…","At that time, at the storehouse of the Kosalan King Pasenadi… — note the genitive <b>rañño</b>, 'of the king'.","https://suttacentral.net/ud2.6/en/sujato"),
+ h("Lesson 6","Declension of 'atta' (self)"),
+ decl("atta (self)",
+  ["attā","atta / attā","attānaṃ / attaṃ","attena / attanā","attena / attanā","attano","attanā / attamhā / attasmā","attano","attani / attāni"],
+  ["attāno","(bhavanto) attāno","attāno","attanebhi / attanehi","attanebhi / attanehi","attānaṃ","attanebhi / attanehi","attānaṃ","attanesu"]),
+ sutta("Dhammapada 160","Attā hi attano nātho, ko hi nātho paro siyā; attanā hi sudantena, nāthaṃ labhati dullabhaṃ.","Self indeed is the refuge of self — who else could be one's refuge? With oneself well tamed, one gains a refuge that is hard to gain.","https://www.tipitaka.net/tipitaka/dhp/verseload.php?verse=160"),
+ h("Lesson 7","Verb Conjugation I — the Present Tense (Vattamānā)"),
+ p("Pāli verbs conjugate for <b>three tenses</b> (vattamānakāla present, atītakāla past, anāgatakāla future), <b>two numbers</b> and <b>three persons</b>. Note: the Pāli 'first person' (<span class='pl'>paṭhamapurisa</span>) corresponds to the English <b>third</b> person."),
+ tbl("Present-tense suffixes — root √paca (to cook)",["Person","Singular","Plural"],[["Third (paṭhama)","(paca) + ti","(paca) + nti"],["Second (majjhima)","(paca) + si","(paca) + tha"],["First (uttama)","(paca) + mi","(paca) + ma"]],[1,2]),
+ tbl("Conjugation of pacati",["Person","Singular","Plural"],[["Third","(So) pacati — he cooks","(Te) pacanti — they cook"],["Second","(Tvaṃ) pacasi — you cook","(Tumhe) pacatha — you all cook"],["First","(Ahaṃ) pacāmi — I cook","(Mayaṃ) pacāma — we cook"]],[1,2]),
+ vocab("Conjugated the same way (3rd sg.)",[["gacchati","goes"],["tiṭṭhati","stands"],["nisīdati","sits"],["sayati","sleeps"],["carati","walks"],["harati","carries"],["āharati","brings"],["kīḷati","plays"],["vasati","lives"],["hanati","kills"]]),
+]},
+/* ---------------- WEEK 3 ---------------- */
+{n:3,title:"-i Masculine Nouns, Verb Roots & the Past Tense",pages:"20–25",
+ source:"Purisagati Sutta · AN — Places People Are Reborn",
+ topics:"Declension of gahapati · dhātu, the roots of the language · Ajjatanī conjugation",
+ lessons:["8. Declension of -i ending masc. 'gahapati'","9. Pāli Verbs & Verb Roots (Dhātu)","10. Verb Conjugation II — Past Tense (Ajjatanī)"],
+ secs:[
+ h("Lesson 8","Declension of the -i masculine noun 'gahapati' (householder)"),
+ decl("gahapati (householder)",
+  ["gahapati","(he) gahapati","gahapatiṃ","gahapatinā","gahapatinā","gahapatino / gahapatissa","gahapatinā / gahapatimhā / gahapatismā","gahapatino / gahapatissa","gahapatimhi / gahapatismiṃ"],
+  ["gahapatī / gahapatayo","(bhavanto) gahapatī / gahapatayo","gahapatī / gahapatayo","gahapatībhi / gahapatīhi","gahapatībhi / gahapatīhi","gahapatīnaṃ","gahapatībhi / gahapatīhi","gahapatīnaṃ","gahapatīsu"],
+  "<span class='pl'>muni</span> (sage) and <span class='pl'>kucchi</span> (belly) decline identically: <span class='pl'>muni, muniṃ, muninā, munino/munissa, munimhi… munī/munayo, munīhi, munīnaṃ, munīsu.</span>"),
+ vocab("-i masculine stems similarly declined",[["muni","monk, sage"],["kavi","poet"],["isi","sage; hermit"],["ari","enemy"],["bhūpati","king"],["pati","husband; master"],["adhipati","lord; leader"],["atithi","guest"],["vyādhi","sickness"],["udadhi","ocean"],["kapi","monkey"],["ahi","serpent"],["dīpi","leopard"],["ravi","sun"],["giri","mountain"],["maṇi","gem"],["nidhi","hidden treasure"],["asi","sword"],["rāsi","heap"],["pāṇi","hand"],["muṭṭhi","fist"],["bodhi","Bo-tree"]]),
+ sutta("Bhaya Sutta · AN (Dangers)","Atha kho anāthapiṇḍiko gahapati yena bhagavā tenupasaṅkami.","Then the householder Anāthapiṇḍika went up to the Buddha. (Likewise Nakulapitā gahapati, Dārukammiko gahapati…)","https://suttacentral.net/an10.92/en/sujato"),
+ h("Lesson 9","Pāli Verbs & Verb Roots (Dhātu)"),
+ p("A <b>dhātu</b> is the basic root that expresses an action — the smallest unit of verbal meaning. The essence of Pāli is the root: only when roots and suffixes are joined are Pāli words born. Tradition compares roots to a mother, suffixes to a father, and the words to their children."),
+ p("Example: <span class='pl'>√gamu</span> (to go) → <span class='pl'>gacchati</span> (he goes); <span class='pl'>√dā</span> (to give) → <span class='pl'>dadāti</span> (he gives). Roots carry the core meaning but are unusable in speech until conjugated."),
+ tbl("Selected verb roots and their present forms",["Root (dhātu)","3rd person singular","Meaning"],[["√gam(u)","gacchati","(he) goes"],["√ṭhā","tiṭṭhati","(he) stands"],["ni + √sad(a)","nisīdati","(he) sits"],["√sī","sayati","(he) sleeps"],["√car(a)","carati","(he) walks"],["√dhāv(a)","dhāvati","(he) runs"],["√dis(a)","passati","(he) sees"],["√bhuj(a)","bhuñjati","(he) eats"],["√bhās(a)","bhāsati","(he) speaks"],["√har(a)","harati","(he) carries"],["ā + √har(a)","āharati","(he) brings"],["√vas(a)","vasati","(he) dwells"],["√han(a)","hanati","(he) kills"],["ā + √ruh(a)","āruhati","(he) climbs"],["√has(a)","hasati","(he) laughs"],["√yāc(a)","yācati","(he) begs"],["√chid(a)","chindati","(he) cuts"],["√likh(a)","likhati","(he) writes"],["√labh(a)","labhati","(he) gets"],["ā + √gam(u)","āgacchati","(he) comes"],["√vand(a)","vandati","(he) worships"],["√dis(a)","deseti / desayati","(he) preaches"],["√cint(a)","cinteti / cintayati","(he) thinks"],["√pūj(a)","pūjeti / pūjayati","(he) offers"],["√cur(a)","coreti / corayati","(he) steals"],["ava + √lok(a)","oloketi / olokayati","(he) looks at"],["u + √i","udeti / udayati","(the sun) rises"],["√ṭhā (caus.)","ṭhapeti / ṭhapayati","(he) keeps"]],[0,1]),
+ h("Lesson 10","Verb Conjugation II — the Past Tense (Ajjatanī)"),
+ p("The past tense often carries an optional augment <b>a-</b> before the stem: <span class='pl'>apaci</span> or <span class='pl'>paci</span>, both 'he cooked'."),
+ tbl("paci — cooked (root √paca)",["Person","Singular","Plural"],[["Third","(So) apaci / paci — he cooked","(Te) apaciṃsu / paciṃsu / apacuṃ / pacuṃ — they cooked"],["Second","(Tvaṃ) apaco / paco — you cooked","(Tumhe) apacittha / pacittha — you all cooked"],["First","(Ahaṃ) apaciṃ / paciṃ — I cooked","(Mayaṃ) apacimha / pacimha — we cooked"]],[1,2]),
+ tbl("gacchi — went",["Person","Singular","Plural"],[["Third","agacchi / gacchi — he went","agacchiṃsu / gacchiṃsu / gacchuṃ — they went"],["Second","agaccho / gaccho — you went","agacchittha / gacchittha — you all went"],["First","agacchiṃ / gacchiṃ — I went","agacchimha / gacchimha — we went"]],[1,2]),
+ tbl("kari — did · acari — walked",["Person","kari (sg / pl)","acari (sg / pl)"],[["Third","akari, kari / akariṃsu, kariṃsu, karuṃ","acari / acariṃsu, cariṃsu"],["Second","akaro, karo / akarittha, karittha","acaro / acarittha"],["First","akariṃ, kariṃ / akarimha, karimha","acariṃ / acarimha"]],[1,2]),
+]},
+/* ---------------- WEEK 4 ---------------- */
+{n:4,title:"The Future Tense & the Personal Pronouns",pages:"26–31",
+ source:"Visuddhimagga — The Path of Purification",
+ topics:"Bhavissanti conjugation · amha (I / we) & tumha (you) · -ī masculine pakkhī",
+ lessons:["11. Verb Conjugation III — Future Tense (Bhavissanti)","12. Declension of Pronouns 'amha' & 'tumha'","13. Declension of -ī ending masc. 'pakkhī'"],
+ secs:[
+ h("Lesson 11","Verb Conjugation III — the Future Tense (Bhavissanti)"),
+ p("The future is formed by inserting <b>-issa-</b> between root and personal ending: <span class='pl'>√bhuja + issa + ti = bhuñjissati</span>, 'he will eat'."),
+ tbl("Future suffixes",["Ending","Meaning"],[["-issati","he / she / it will…"],["-issanti","they will…"],["-issasi","you (sg.) will…"],["-issatha","you (pl.) will…"],["-issāmi","I will…"],["-issāma","we will…"]],[0]),
+ tbl("pacissati — will cook · gacchissati — will go · dadissati — will give",["Person","√paca (sg / pl)","√gamu (sg / pl)","√dā (sg / pl)"],[["Third","pacissati / pacissanti","gacchissati / gacchissanti","dadissati / dadissanti"],["Second","pacissasi / pacissatha","gacchissasi / gacchissatha","dadissasi / dadissatha"],["First","pacissāmi / pacissāma","gacchissāmi / gacchissāma","dadissāmi / dadissāma"]],[1,2,3],"Similarly: <span class='pl'>gamissati, bhuñjissati, harissati, vasissati, karissati, passissati, bhāyissati</span>."),
+ tbl("Future-tense sentences with objects",["Pāli","English"],[["So gehaṃ gacchissati.","He will go home."],["Ahaṃ nagaraṃ gacchissāmi.","I will go to the city."],["Mayaṃ ārāmaṃ gacchissāma.","We will go to the monastery."],["Sā odanaṃ pacissati.","She will cook rice."],["So pānaṃ dadissati.","He will give a drink."],["Te cīvaraṃ dadissanti.","They will give a robe."],["Tumhe piṇḍapātaṃ dadissatha.","You all will give alms-food."],["So odanaṃ bhuñjissati.","He will eat rice."],["Ahaṃ ārāme vasissāmi.","I will live in the monastery."],["Ahaṃ puññaṃ karissāmi.","I will make merit."]],[0]),
+ h("Lesson 12","Declension of the pronouns 'amha' (I / we) and 'tumha' (you)"),
+ tbl("amha — first person",["Case","Singular (I)","Plural (we)"],[["Nominative","ahaṃ","mayaṃ / amhe"],["Accusative","maṃ / mamaṃ","amhe / amhākaṃ / no"],["Instrumental","mayā / me","amhebhi / amhehi / no"],["Dative / Genitive","mama / mayhaṃ / me / mamaṃ","amhākaṃ / amhaṃ / no"],["Ablative","mayā","amhebhi / amhehi"],["Locative","mayi","amhesu"]],[1,2]),
+ tbl("tumha — second person",["Case","Singular (you)","Plural (you all)"],[["Nominative","tvaṃ / tuvaṃ","tumhe"],["Accusative","taṃ / tvaṃ / tuvaṃ","tumhe / tumhākaṃ / vo"],["Instrumental","tayā / tvayā / te","tumhebhi / tumhehi / vo"],["Dative / Genitive","tava / tuyhaṃ / te","tumhākaṃ / tumhaṃ / vo"],["Ablative","tayā / tvayā","tumhebhi / tumhehi"],["Locative","tayi / tvayi","tumhesu"]],[1,2],"The enclitics <span class='pl'>me, te, no, vo</span> never begin a sentence."),
+ h("Lesson 13","Declension of the -ī masculine noun 'pakkhī' (bird)"),
+ decl("pakkhī (bird — lit. 'winged one')",
+  ["pakkhī","pakkhī","pakkhinaṃ / pakkhiṃ","pakkhinā","pakkhinā","pakkhino / pakkhissa","pakkhinā / pakkhimhā / pakkhismā","pakkhino / pakkhissa","pakkhini / pakkhimhi / pakkhismiṃ"],
+  ["pakkhī / pakkhino","pakkhī / pakkhino","pakkhī / pakkhino","pakkhībhi / pakkhīhi","pakkhībhi / pakkhīhi","pakkhīnaṃ","pakkhībhi / pakkhīhi","pakkhīnaṃ","pakkhīsu"],
+  "So too other -ī masculines: <span class='pl'>hatthī</span> (elephant), <span class='pl'>seṭṭhī</span> (millionaire), <span class='pl'>sāmī</span> (master), <span class='pl'>sukhī</span> (happy one), <span class='pl'>pāpakārī</span> (evil-doer)."),
+]},
+/* ---------------- WEEK 5 ---------------- */
+{n:5,title:"The Imperative, Absolutives & -u Masculine Nouns",pages:"32–38",
+ source:"Nivāpa Sutta · MN — Sowing",
+ topics:"Pañcamī mood · pūrvakriyā (-tvā forms) · bhikkhu & Bhagavantu declensions",
+ lessons:["14. Verb Conjugation IV — Imperative Mood (Pañcamī)","15. Absolutives (Pūrvakriyā)","16. Declension of -u ending masc. 'bhikkhu'","17. Declension of 'Bhagavantu'"],
+ secs:[
+ h("Lesson 14","Verb Conjugation IV — the Imperative Mood (Pañcamī)"),
+ p("The Imperative expresses <b>command, prayer, advice or wish</b>, and includes the benedictive ('may it be so')."),
+ tbl("pacatu — let him cook",["Person","Singular","Plural"],[["Third","(So) pacatu — let him cook","(Te) pacantu — let them cook"],["Second","(Tvaṃ) paca / pacāhi — you may cook","(Tumhe) pacatha — you all may cook"],["First","(Ahaṃ) pacāmi — let me cook","(Mayaṃ) pacāma — let us cook"]],[1,2],"Similarly: <span class='pl'>hotu / bhavatu</span> (let it be), <span class='pl'>pivatu, jayatu, rakkhatu, ṭhapetu, gacchatu, bhāsatu</span>."),
+ tbl("Imperative sentences",["Pāli","English"],[["Dāso bhattaṃ pacatu.","Let the slave cook rice."],["Tvaṃ gāmaṃ gaccha.","Please, you, go to the village."],["Tumhe vihāraṃ gacchatha.","Please, you all, go to the monastery."],["Sīho araññaṃ pavisatu.","Let the lion enter the forest."],["Bhikkhu pāpake dhamme jahatu.","Let the bhikkhu give up bad things."],["Sāmaṇero udakaṃ āharatu.","Let the novice bring water."],["Sakuṇo ākāse uḍḍetu.","Let the bird fly in the sky."],["Mittā saccaṃ bhāsantu.","May friends speak the truth."]],[0]),
+ sutta("Bāhiya Sutta · Udānapāḷi (KN)","“Desetu me, bhante, bhagavā dhammaṃ; desetu sugato dhammaṃ.”","“Teach me the Dhamma, O Blessed One! Teach me the Dhamma, O Well-Gone One!”","https://suttacentral.net/ud1.10/en/sujato"),
+ sutta("Mahāpadāna Sutta · DN","“Desetha, bhikkhave, dhammaṃ.”","“Monks, (please) preach the Dhamma.”","https://suttacentral.net/dn14/en/sujato"),
+ h("Lesson 15","Absolutives (Pūrvakriyā) — 'having done…'"),
+ p("Absolutives are <b>indeclinable</b> verb forms expressing a completed action that happens <b>before</b> the main action: 'having gone', 'having heard'. They end in <b>-tvā, -tvāna, -tūna</b> or <b>-ya</b> (the last generally with prefixed verbs), and never change for gender, number or case."),
+ tbl("Common absolutives",["Root","Absolutive","Meaning"],[["√gam(u)","gantvā / gantvāna","having gone"],["√kar(a)","katvā","having done"],["√su","sutvā","having heard"],["√dis(a)","disvā","having seen"],["√bhuj(a)","bhutvā / bhuñjitvā","having eaten"],["ni + √sad(a)","nisīditvā","having sat down"],["√ṭhā","ṭhatvā","having stood"],["√gah(a)","gahetvā","having taken"],["√vand(a)","vanditvā","having worshipped"],["√pā","pivitvā / pātvā","having drunk"],["ā + √gam(u)","āgamma (-ya)","having come"],["ā + √dā","ādāya (-ya)","having taken along"]],[1],"Example: <span class='pl'>So dhammaṃ <b>sutvā</b> pabbaji.</span> — Having heard the Dhamma, he went forth."),
+ h("Lesson 16","Declension of the -u masculine noun 'bhikkhu' (monk)"),
+ decl("bhikkhu (monk)",
+  ["bhikkhu","bhikkhu","bhikkhuṃ","bhikkhunā","bhikkhunā","bhikkhuno / bhikkhussa","bhikkhunā / bhikkhumhā / bhikkhusmā","bhikkhuno / bhikkhussa","bhikkhumhi / bhikkhusmiṃ"],
+  ["bhikkhū / bhikkhavo","bhikkhave / bhikkhavo","bhikkhū / bhikkhavo","bhikkhūbhi / bhikkhūhi","bhikkhūbhi / bhikkhūhi","bhikkhūnaṃ","bhikkhūbhi / bhikkhūhi","bhikkhūnaṃ","bhikkhūsu"],
+  "The vocative plural <b>bhikkhave</b> — 'O monks!' — opens countless suttas. So too: <span class='pl'>garu</span> (teacher), <span class='pl'>bandhu</span> (relative), <span class='pl'>taru</span> (tree), <span class='pl'>bāhu</span> (arm), <span class='pl'>setu</span> (bridge), <span class='pl'>ketu</span> (banner)."),
+ h("Lesson 17","Declension of 'Bhagavantu' (the Blessed One)"),
+ decl("Bhagavantu (the Blessed One)",
+  ["Bhagavā","Bhagavā / Bhagava","Bhagavantaṃ","Bhagavatā / Bhagavantena","Bhagavatā / Bhagavantena","Bhagavato / Bhagavantassa","Bhagavatā / Bhagavantamhā / Bhagavantasmā","Bhagavato / Bhagavantassa","Bhagavati / Bhagavante / Bhagavantamhi / Bhagavantasmiṃ"],
+  ["Bhagavanto / Bhagavantā","Bhagavanto","Bhagavanto / Bhagavante","Bhagavantebhi / Bhagavantehi","Bhagavantebhi / Bhagavantehi","Bhagavataṃ / Bhagavantānaṃ","Bhagavantebhi / Bhagavantehi","Bhagavataṃ / Bhagavantānaṃ","Bhagavantesu"],
+  "This -ntu class covers many honorifics and possessive adjectives — <span class='pl'>guṇavantu</span> (virtuous), <span class='pl'>satimantu</span> (mindful), <span class='pl'>cakkhumantu</span> (possessed of vision) — met again in Week 13. The phrase <span class='pl'>yena bhagavā tenupasaṅkami</span>, 'he approached the Blessed One,' uses the nominative."),
+ sutta("Nivāpa Sutta · MN (the week's reading)","Atha kho, bhikkhave, tesaṃ migajātānaṃ etadahosi…","The sutta of the Sower — deer, bait and the snares of Māra; the week's exercise traces its bhikkhu- and Bhagavantu-forms.","https://suttacentral.net/mn25/en/sujato"),
+]},
+/* ---------------- WEEK 6 ---------------- */
+{n:6,title:"The Optative Mood, Infinitives, pitu & nattu",pages:"39–44",
+ source:"Saccavibhaṅga Sutta (MN) · Brahmajāla commentary (DNa)",
+ topics:"Sattamī mood — may / might / should · -tuṃ infinitives · kinship -u stems",
+ lessons:["18. Verb Conjugation V — Optative Mood (Sattamī)","19. Pāli Infinitives (Tumantakriyā)","20. Declension of 'pitu'","21. Declension of 'nattu'"],
+ secs:[
+ h("Lesson 18","Verb Conjugation V — the Optative or Potential Mood (Sattamī)"),
+ p("The Sattamī expresses <b>probability, wish, prayer, hope, advice and capability</b> — English 'may, might, can, could, should, would'. It appears in conditional sentences where one statement depends on another. The words for 'if' are <span class='pl'>sace</span>, <span class='pl'>yadi</span> and <span class='pl'>ce</span> — but <span class='pl'>ce</span> never begins a sentence."),
+ tbl("paceyya — may cook / would cook",["Person","Singular","Plural"],[["Third","(So) paceyya — if he would cook / he may cook","(Te) paceyyuṃ — if they would cook"],["Second","(Tvaṃ) paceyyāsi — if you would cook","(Tumhe) paceyyātha — if you all would cook"],["First","(Ahaṃ) paceyyāmi — if I would cook","(Mayaṃ) paceyyāma — if we would cook"]],[1,2],"Similarly: <span class='pl'>bhuñjeyya, nahāyeyya, katheyya, āhareyya, ṭhapeyya, bhaveyya</span>."),
+ tbl("Conditional sentences",["Pāli","English"],[["Sace mama pitā bhattaṃ paceyya, ahaṃ bhuñjissāmi.","If my father cooks rice, I will eat."],["Sace tvaṃ bhuñjeyyāsi, ahaṃ api bhuñjissāmi.","If you eat, I too will eat."],["Sace tvaṃ sayeyyāsi, ahaṃ api sayissāmi.","If you sleep, I will sleep too."],["Sace mayaṃ bhattaṃ dadeyyāma, bhikkhū tuṭṭhā bhavissanti.","If we give food, the monks will be happy."]],[0]),
+ sutta("Nivāpa Sutta · MN — the optative in the wild","Yaṃnūna mayaṃ sabbaso nivāpabhojanā paṭivirameyyāma, bhayabhogā paṭiviratā araññāyatanāni ajjhogāhetvā vihareyyāma.","“What if we were to abstain entirely from the baited food and, withdrawn from fear-born enjoyment, plunge into the forest dwellings and live there?” — note the optatives paṭivirameyyāma & vihareyyāma.","https://suttacentral.net/mn25/en/sujato"),
+ h("Lesson 19","Pāli Infinitives (Tumantakriyā)"),
+ p("The infinitive — 'to do', 'to go' — is formed with the indeclinable suffix <b>-tuṃ</b>: <span class='pl'>kātuṃ</span> (to do), <span class='pl'>gantuṃ</span> (to go), <span class='pl'>dātuṃ</span> (to give), <span class='pl'>bhuñjituṃ</span> (to eat), <span class='pl'>pātuṃ</span> (to drink), <span class='pl'>desetuṃ</span> (to teach)."),
+ sutta("Saccavibhaṅga Sutta · MN — seven infinitives in one line","Sāriputto, bhikkhave, pahoti cattāri ariyasaccāni vitthārena ācikkhituṃ desetuṃ paññāpetuṃ paṭṭhapetuṃ vivarituṃ vibhajituṃ uttānīkātuṃ.","Monks, Sāriputta is able to explain, teach, make known, establish, elucidate, analyse and lay open the Four Noble Truths in detail.","https://suttacentral.net/mn141/en/sujato"),
+ h("Lesson 20","Declension of the -u noun 'pitu' (father)"),
+ decl("pitu (father)",
+  ["pitā","pita / pitā","pitaraṃ","pitarā / pitunā","pitarā / pitunā","pitu / pituno / pitussa","pitarā","pitu / pituno / pitussa","pitari"],
+  ["pitaro","(bhavanto) pitaro","pitare / pitaro","pitarebhi / pitarehi / pitūbhi / pitūhi","pitarebhi / pitarehi / pitūhi","pitarānaṃ / pitānaṃ / pitūnaṃ","pitarehi / pitūhi","pitarānaṃ / pitānaṃ / pitūnaṃ","pitaresu / pitūsu"],
+  "<span class='pl'>bhātu</span> (brother) declines the same way; <span class='pl'>mātu</span> (mother) follows in Week 9 with feminine variants."),
+ h("Lesson 21","Declension of 'nattu' (grandson)"),
+ decl("nattu (grandson)",
+  ["nattā","natta / nattā","nattāraṃ","nattārā","nattārā","nattu / nattuno / nattussa","nattārā","nattu / nattuno / nattussa","nattari"],
+  ["nattāro","nattāro","nattāre / nattāro","nattārebhi / nattārehi","nattārebhi / nattārehi","nattārānaṃ / nattānaṃ","nattārebhi / nattārehi","nattārānaṃ / nattānaṃ","nattāresu"],
+  "Agent nouns in -tu — <span class='pl'>satthu</span> (teacher), <span class='pl'>kattu</span> (doer), <span class='pl'>dātu</span> (giver) — follow nattu: <span class='pl'>satthā, satthāraṃ, satthu / satthuno…</span>"),
+]},
+/* ---------------- WEEK 7 ---------------- */
+{n:7,title:"sabbaññū, go & the First Feminine Nouns",pages:"45–49",
+ source:"Dhammaññū Sutta (AN) · Dhammapada & its commentary",
+ topics:"-ū masc. sabbaññū · irregular go · -ā feminine kaññā · -i feminine ratti",
+ lessons:["22. Declension of -ū ending masc. 'sabbaññū'","23. Declension of -o ending masc. 'go'","24. Declension of -ā ending fem. 'kaññā'","25. Declension of -i ending fem. 'ratti'"],
+ secs:[
+ h("Lesson 22","Declension of the -ū masculine noun 'sabbaññū' (the Omniscient One)"),
+ decl("sabbaññū (omniscient one — the Buddha)",
+  ["sabbaññū","(he) sabbaññu / sabbaññū","sabbaññuṃ","sabbaññunā","sabbaññunā","sabbaññuno / sabbaññussa","sabbaññunā / sabbaññumhā / sabbaññusmā","sabbaññuno / sabbaññussa","sabbaññumhi / sabbaññusmiṃ"],
+  ["sabbaññū / sabbaññuno","(bhavanto) sabbaññū / sabbaññuno","sabbaññū / sabbaññuno","sabbaññūbhi / sabbaññūhi","sabbaññūbhi / sabbaññūhi","sabbaññūnaṃ","sabbaññūbhi / sabbaññūhi","sabbaññūnaṃ","sabbaññūsu"],
+  "So too: <span class='pl'>viññū</span> (wise one), <span class='pl'>vadaññū</span> (bountiful one), <span class='pl'>atthaññū</span> (knower of the meaning), <span class='pl'>kataññū</span> (grateful one)."),
+ sutta("Dhammaññū Sutta · AN 7.68 (the week's reading)","Idha, bhikkhave, bhikkhu dhammaññū ca hoti atthaññū ca attaññū ca mattaññū ca kālaññū ca…","Here, monks, a bhikkhu is one who knows the teachings, the meaning, himself, moderation, and the right time…","https://suttacentral.net/an7.68/en/sujato"),
+ h("Lesson 23","Declension of the -o noun 'go' (ox / cattle)"),
+ decl("go (ox, cow, cattle)",
+  ["go","go","gāvaṃ / gavaṃ / gāvuṃ","gāvena / gavena","gāvena / gavena","gāvassa / gavassa","gāvā / gāvamhā / gāvasmā","gāvassa / gavassa","gāve / gāvamhi / gāvasmiṃ"],
+  ["gāvo / gavo","gāvo","gāvo","gobhi / gohi","gobhi / gohi","gavaṃ / gunnaṃ / gonaṃ","gobhi / gohi","gavaṃ / gunnaṃ / gonaṃ","gāvesu / gavesu / gosu"]),
+ h("Lesson 24","Declension of the -ā feminine noun 'kaññā' (girl / maiden)"),
+ decl("kaññā (girl, maiden)",
+  ["kaññā","kaññe","kaññaṃ","kaññāya","kaññāya","kaññāya","kaññāya","kaññāya","kaññāya / kaññāyaṃ"],
+  ["kaññā / kaññāyo","kaññā / kaññāyo","kaññā / kaññāyo","kaññābhi / kaññāhi","kaññābhi / kaññāhi","kaññānaṃ","kaññābhi / kaññāhi","kaññānaṃ","kaññāsu"],
+  "The whole -ā feminine class follows: <span class='pl'>saddhā</span> (faith), <span class='pl'>paññā</span> (wisdom), <span class='pl'>mettā</span>, <span class='pl'>karuṇā</span>, <span class='pl'>vācā</span> (speech), <span class='pl'>nāvā</span> (boat), <span class='pl'>latā</span> (vine), <span class='pl'>gaṅgā</span>, <span class='pl'>sālā</span> (hall), <span class='pl'>vanitā</span> (woman)."),
+ h("Lesson 25","Declension of the -i feminine noun 'ratti' (night)"),
+ decl("ratti (night)",
+  ["ratti","ratti","rattiṃ","rattiyā","rattiyā","rattiyā","rattiyā","rattiyā","rattiyā / rattiyaṃ / ratyaṃ"],
+  ["rattī / rattiyo","rattī / rattiyo","rattī / rattiyo","rattībhi / rattīhi","rattībhi / rattīhi","rattīnaṃ","rattībhi / rattīhi","rattīnaṃ","rattīsu"],
+  "So too: <span class='pl'>bhūmi</span> (earth), <span class='pl'>aṅguli</span> (finger), <span class='pl'>yuvati</span> (young woman), <span class='pl'>dundubhi</span> (drum), <span class='pl'>khanti</span> (patience), <span class='pl'>mutti</span> (release)."),
+ sutta("Lakuṇḍakabhaddiyattheravatthu · Dhammapada commentary","Na tena thero so hoti, yenassa palitaṃ siro…","One is not an Elder merely because one's head is grey… — the week's Dhammapada reading on the short-statured Elder Bhaddiya.","https://suttacentral.net/dhp256-272/en/sujato"),
+]},
+/* ---------------- WEEK 8 ---------------- */
+{n:8,title:"Indeclinable Particles (Nipāta)",pages:"50–56",
+ source:"Pabhassara Vagga · AN — Chapter of the Very Bright · Mahāparinibbāna Sutta (DN)",
+ topics:"What an avyaya is · nipāta vs upasagga · the particle lexicon",
+ lessons:["26. Indeclinable Particles (Nipāta)"],
+ secs:[
+ h("Lesson 26","Indeclinable Particles — Nipāta"),
+ p("An <b>indeclinable</b> (<span class='pl'>avyaya</span>) keeps the same form in all genders, numbers and cases. There are two kinds: the <b>Upasagga</b> (prefix — Week 10) and the <b>Nipāta</b>. A Nipāta may stand before or after another word; the class covers English particles, adverbs, conjunctions and interjections. Some nipātas are meaningful; others merely fill and adorn the sentence — like the ubiquitous <span class='pl'>kho</span>."),
+ tbl("One particle, unchanged everywhere — ajja (today)",["Pāli","English"],[["Ajja bhikkhū vihāre vasanti.","Today the monks stay in the monastery."],["Bhagavā ajja dhammaṃ deseti.","The Blessed One teaches the Dhamma today."],["Ajja rājā gāmaṃ gacchati.","Today the king goes to the village."],["Ajja kaññā pupphāni āharanti.","Today the girls bring flowers."],["Vanitāyo ajja pupphāni pūjenti.","The women offer flowers today."],["Ajja cando ākāse udeti.","Today the moon rises in the sky."]],[0]),
+ vocab("The particle lexicon — learn these by heart",[["addhā","surely"],["aho","alas"],["abhiṇhaṃ","always"],["abhikkhaṇaṃ","again & again"],["anto","inside"],["āma","yes"],["aññatra","elsewhere"],["api","even, also, perhaps"],["atha","then, and also"],["āyatiṃ","in future"],["bahi","outside"],["bhūtapubbaṃ","once upon a time"],["ca","and"],["ce","if"],["ciraṃ","long"],["divā","by day"],["dhuvaṃ","certainly"],["ekadā","one day"],["etarahi","now, at present"],["eva","only, indeed"],["evaṃ","thus, yes"],["handa","well then"],["kila / kira","it seems, indeed"],["kiñcāpi","although"],["kudācana","sometimes"],["kho","(filler) indeed"],["mā","don't (prohibitive)"],["musā","falsely"],["nāma","namely; just as"],["niccaṃ","always"],["nūna","surely; perhaps"],["pana","but, however"],["pacchā","afterwards"],["puna","again"],["sace","if"],["saddhiṃ","together with"],["sadā","always"],["sahasā","suddenly"],["sāyaṃ","in the evening"],["suve","tomorrow"],["tadā","then"],["tathā","in that way"],["tuṇhī","silently"],["uddhaṃ","upwards"],["va / iva","like, as"],["vā","or"],["yadā","when"],["yathā","just as"],["yāva … tāva","as long as … so long"],["hīyo","yesterday"]]),
+ sutta("Mahāparinibbāna Sutta · DN 16 — the Buddha's last words, built on nipātas","Handa dāni, bhikkhave, āmantayāmi vo: vayadhammā saṅkhārā, appamādena sampādetha.","Well then, monks, I now address you: conditioned things are of a nature to decay — strive on with diligence. (handa, dāni, vo are all indeclinables.)","https://suttacentral.net/dn16/en/sujato"),
+ sutta("Bhaddiya Sutta · KN","Taṃ kiṃ maññatha, bhaddiya…","What do you think, Bhaddiya…? — the interrogative particle kiṃ with the filler kho throughout the week's readings from AN, SN & DN.","https://suttacentral.net/an4.193/en/sujato"),
+]},
+/* ---------------- WEEK 9 ---------------- */
+{n:9,title:"Feminine -ī / -u / -ū Nouns & the First Neuter",pages:"57–61",
+ source:"Udāyī Sutta · AN — With Udāyī · Dhātu Sutta (Itivuttaka, KN)",
+ topics:"kumārī · sassu · mātu · vadhū · the -a neuter citta",
+ lessons:["27. Declension of -ī fem. 'kumārī'","28. Declension of -u fem. 'sassu'","29. Declension of -u fem. 'mātu'","30. Declension of -ū fem. 'vadhū'","31. Declension of -a neuter 'citta'"],
+ secs:[
+ h("Lesson 27","Declension of the -ī feminine noun 'kumārī' (girl, damsel)"),
+ decl("kumārī (girl)",
+  ["kumārī","(he) kumārī","kumāriṃ","kumāriyā","kumāriyā","kumāriyā","kumāriyā","kumāriyā","kumāriyā / kumāriyaṃ"],
+  ["kumārī / kumāriyo","(bhotī) kumārī / kumāriyo","kumārī / kumāriyo","kumārībhi / kumārīhi","kumārībhi / kumārīhi","kumārīnaṃ","kumārībhi / kumārīhi","kumārīnaṃ","kumārīsu"],
+  "So too: <span class='pl'>nadī</span> (river), <span class='pl'>devī</span> (queen, goddess), <span class='pl'>itthī</span> (woman), <span class='pl'>bhikkhunī</span> (nun), <span class='pl'>sīhī</span> (lioness)."),
+ h("Lesson 28","Declension of the -u feminine noun 'sassu' (mother-in-law)"),
+ decl("sassu (mother-in-law)",
+  ["sassu","sassu","sassuṃ","sassuyā","sassuyā","sassuyā","sassuyā","sassuyā","sassuyā / sassuyaṃ"],
+  ["sassū / sassuyo","sassū / sassuyo","sassū / sassuyo","sassūbhi / sassūhi","sassūbhi / sassūhi","sassūnaṃ","sassūbhi / sassūhi","sassūnaṃ","sassūsu"],
+  "So too <span class='pl'>dhenu</span> (cow), <span class='pl'>yāgu</span> (rice-gruel), <span class='pl'>dhātu</span> (element), <span class='pl'>rajju</span> (rope)."),
+ h("Lesson 29","Declension of the -u feminine noun 'mātu' (mother)"),
+ decl("mātu (mother)",
+  ["mātā","māta / mātā / māte","mātaraṃ","mātarā / mātuyā","mātarā / mātuyā","mātu / mātuyā / mātussa","mātarā / mātuyā","mātu / mātuyā / mātussa","mātari"],
+  ["mātaro","(bhotiyo) mātaro","mātare / mātaro","mātarebhi / mātarehi / mātūbhi / mātūhi","mātarebhi / mātarehi / mātūhi","mātarānaṃ / mātānaṃ / mātūnaṃ","mātarehi / mātūhi","mātarānaṃ / mātānaṃ / mātūnaṃ","mātaresu / mātūsu"],
+  "Compare <span class='pl'>pitu</span> of Week 6 — <span class='pl'>dhītu</span> (daughter) and <span class='pl'>duhitu</span> (daughter) also follow mātu."),
+ h("Lesson 30","Declension of the -ū feminine noun 'vadhū' (daughter-in-law)"),
+ decl("vadhū (young wife, daughter-in-law)",
+  ["vadhū","vadhu","vadhuṃ","vadhuyā","vadhuyā","vadhuyā","vadhuyā","vadhuyā","vadhuyā / vadhuyaṃ"],
+  ["vadhū / vadhuyo","vadhū / vadhuyo","vadhū / vadhuyo","vadhūbhi / vadhūhi","vadhūbhi / vadhūhi","vadhūnaṃ","vadhūbhi / vadhūhi","vadhūnaṃ","vadhūsu"]),
+ h("Lesson 31","Declension of the -a neuter noun 'citta' (mind)"),
+ p("Neuter -a nouns differ from the masculine only in the <b>nominative, vocative and accusative</b> — everywhere else they are identical to <span class='pl'>Buddha</span>."),
+ decl("citta (mind)",
+  ["cittaṃ","citta","cittaṃ","cittena","cittena","cittassa","cittā / cittamhā / cittasmā","cittassa","citte / cittamhi / cittasmiṃ"],
+  ["cittā / cittāni","cittāni","citte / cittāni","cittebhi / cittehi","cittebhi / cittehi","cittānaṃ","cittebhi / cittehi","cittānaṃ","cittesu"],
+  "So too: <span class='pl'>rūpa</span> (form), <span class='pl'>dāna</span> (giving), <span class='pl'>sīla</span> (virtue), <span class='pl'>puñña</span> (merit), <span class='pl'>phala</span> (fruit), <span class='pl'>kula</span> (family), <span class='pl'>dhana</span> (wealth), <span class='pl'>nagara</span> (city), <span class='pl'>udaka</span> (water)."),
+ sutta("Dhammapada 35 — citta declined in a single verse","Dunniggahassa lahuno, yatthakāmanipātino; cittassa damatho sādhu, cittaṃ dantaṃ sukhāvahaṃ.","Good is the taming of the mind — hard to hold, quick, alighting where it will; a tamed mind brings happiness. (cittassa gen. · cittaṃ nom.)","https://suttacentral.net/dhp33-43/en/sujato"),
+]},
+/* ---------------- WEEK 10 ---------------- */
+{n:10,title:"Verbal Prefixes — Upasagga",pages:"62–68",
+ source:"Soṇadaṇḍa Sutta (DN) · Nāga Sutta (KN)",
+ topics:"The twenty prefixes · three kinds of upasagga · one root, many verbs",
+ lessons:["32. Verbal Prefixes (Upasagga) and their multiple usages"],
+ secs:[
+ h("Lesson 32","Introduction to the Upasaggas"),
+ p("Upasaggas are <b>prefixes</b> — one of the four word-classes of Pāli grammar. Added to the beginning of a noun or verb, they change or colour its meaning. Etymology: <span class='pl'>upa + √sajja</span> — <span class='pl'>“upagantvā sajjati pakāsetī'ti upasaggo”</span> (Abhidhānappadīpikā-ṭīkā). There are exactly <b>twenty</b>:"),
+ {k:'chips',items:["pa","parā","ni","nī","u","du","saṃ","vi","ava","anu","pari","adhi","abhi","pati","su","ā","ati","api","apa","upa"]},
+ p("<b>Three kinds of upasagga:</b>"),
+ list(["<b>Dhātvatthānuvattaka</b> — follows the meaning of the root without changing it","<b>Dhātvatthabādhaka</b> — reverses the root's meaning entirely","<b>Dhātvatthavisesaka</b> — enhances the root with a more specific flavour"]),
+ tbl("One root, eight verbs — √hara (harati, 'carries')",["Prefix + root","Verb","Meaning"],[["ā + harati","āharati","brings"],["pari + harati","pariharati","uses"],["apa + harati","apaharati","carries away"],["saṃ + harati","saṃharati","destroys; collects"],["nī + harati","nīharati","throws out"],["upa + harati","upaharati","offers"],["pa + harati","paharati","attacks"],["vi + harati","viharati","lives, dwells"]],[0,1]),
+ tbl("√ñā — jānāti, 'knows'",["Verb","Meaning"],[["ājānāti","admits"],["anujānāti","approves"],["abhijānāti","remembers; gains special knowledge"],["avajānāti","censures"],["pajānāti","realizes"],["paṭijānāti","claims"],["parijānāti","gains overall knowledge"],["vijānāti","becomes conscious of"],["sañjānāti","identifies"]],[0]),
+ tbl("√kamu — kamati, 'goes'",["Prefix + root","Verb","Meaning"],[["abhi + kamati","abhikkamati","goes ahead; proceeds"],["pati + kamati","paṭikkamati","steps back; retreats"],["apa + kamati","apakkamati","deviates"],["ati + kamati","atikkamati","surpasses"],["a + kamati","akkamati","treads upon"],["pa + kamati","pakkamati","goes forth"],["ni + kamati","nikkamati","goes out"],["upa + kamati","upakkamati","strives; plans"],["saṃ + kamati","saṅkamati","moves from place to place"],["parā + kamati","parakkamati","makes an effort"],["anu + kamati","anukkamati","follows"]],[0,1]),
+ tbl("The prefixes in living sentences",["Pāli","English"],[["Asappuriso pāpakammāni katvā dukkhaṃ āpajjati.","The wicked person, having done evil deeds, gets into sorrow."],["Sappuriso puññakammāni katvā sukhaṃ āpajjati.","The good person, having done good deeds, comes to happiness."],["Āsanne ito naḷakāragāmo?","Is the village of Naḷakāra near here? (ā + sanna, 'near')"]],[0]),
+ note("Notice the doubling: many prefixes geminate the root's first consonant — <span class='pl'>pati + kamati → paṭi<b>kk</b>amati</span>. That is <b>consonant sandhi</b>, formally studied in Week 16 (Rule 9)."),
+]},
+/* ---------------- WEEK 11 ---------------- */
+{n:11,title:"Neuter Nouns — mana, aṭṭhi & āyu",pages:"69–73",
+ source:"Tayodhamma Sutta · AN — Three Things · Dhammapada (KN)",
+ topics:"The mano-group · -i and -u neuters · the opening of the Dhammapada",
+ lessons:["33. Declension of -a neuter 'mana' (mind)","34. Declension of -i neuter 'aṭṭhi' (bone) / 'akkhi' (eye)","35. Declension of -u neuter 'āyu' (life-span)"],
+ secs:[
+ h("Lesson 33","Declension of the -a neuter noun 'mana' (mind) — the mano-group"),
+ p("A small, ancient family of neuters — <span class='pl'>mano, vaco, tejo, tapo, ceto, yaso, ayo, siro, thāmo, uro</span> — keep an old <b>-as</b> stem, giving the distinctive forms <span class='pl'>manasā, manaso, manasi</span>."),
+ decl("mana (mind)",
+  ["manaṃ / mano","mana / manā","manaṃ / mano","manasā / manena","manasā / manena","manaso / manassa","manasā / manamhā / manasmā","manaso / manassa","manasi / mane / manamhi / manasmiṃ"],
+  ["manā / manāni","manāni","mane / manāni","manebhi / manehi","manebhi / manehi","manānaṃ","manebhi / manehi","manānaṃ","manesu"]),
+ sutta("Dhammapada 1 — the mano-group in the most famous verse of all","Manopubbaṅgamā dhammā, manoseṭṭhā manomayā; manasā ce paduṭṭhena, bhāsati vā karoti vā; tato naṃ dukkhamanveti, cakkaṃva vahato padaṃ.","Mind precedes all states; mind is their chief, they are mind-made. If with a corrupted mind one speaks or acts, suffering follows as the wheel follows the ox's foot. (manasā — instrumental!)","https://suttacentral.net/dhp1-20/en/sujato"),
+ h("Lesson 34","Declension of the -i neuter noun 'aṭṭhi' (bone) / 'akkhi' (eye)"),
+ decl("aṭṭhi (bone) — akkhi (eye) is identical",
+  ["aṭṭhi","aṭṭhi","aṭṭhiṃ","aṭṭhinā","aṭṭhinā","aṭṭhino / aṭṭhissa","aṭṭhinā / aṭṭhimhā / aṭṭhismā","aṭṭhino / aṭṭhissa","aṭṭhimhi / aṭṭhismiṃ"],
+  ["aṭṭhī / aṭṭhīni","aṭṭhīni","aṭṭhī / aṭṭhīni","aṭṭhībhi / aṭṭhīhi","aṭṭhībhi / aṭṭhīhi","aṭṭhīnaṃ","aṭṭhībhi / aṭṭhīhi","aṭṭhīnaṃ","aṭṭhīsu"],
+  "So too <span class='pl'>sappi</span> (ghee), <span class='pl'>dadhi</span> (curd), <span class='pl'>vāri</span> (water)."),
+ h("Lesson 35","Declension of the -u neuter noun 'āyu' (age / life-span)"),
+ decl("āyu (life-span)",
+  ["āyu","āyu","āyuṃ","āyunā","āyunā","āyuno / āyussa","āyunā / āyumhā / āyusmā","āyuno / āyussa","āyumhi / āyusmiṃ"],
+  ["āyū / āyūni","āyūni","āyū / āyūni","āyūbhi / āyūhi","āyūbhi / āyūhi","āyūnaṃ","āyūbhi / āyūhi","āyūnaṃ","āyūsu"],
+  "So too <span class='pl'>cakkhu</span> (eye), <span class='pl'>vasu</span> (wealth), <span class='pl'>dhanu</span> (bow), <span class='pl'>madhu</span> (honey), <span class='pl'>assu</span> (tear)."),
+]},
+/* ---------------- WEEK 12 ---------------- */
+{n:12,title:"The Pronouns in Three Genders",pages:"74–81",
+ source:"Avijjā Sutta (AN) · Milindapañha · Vakkalī Sutta (SN)",
+ topics:"ya · ta · ima · amu · eta · sabba · pubba · kiṃ — the full pronominal system",
+ lessons:["36. Declension of pronouns ya, ta, ima, amu, eta, sabba, pubba & kiṃ in three genders"],
+ secs:[
+ h("Lesson 36","Declension of the pronouns"),
+ p("Pāli pronouns decline in all three genders. Master <span class='pl'>ta</span> (that / he, she, it) first — most of the others repeat its pattern. There is no vocative for pronouns; the tables run through eight cases."),
+ tbl("ta — that; he / she / it",["Case","Masculine sg / pl","Feminine sg / pl","Neuter sg / pl"],[["Nominative","so / te","sā / tā, tāyo","taṃ, tad / tāni"],["Accusative","taṃ, naṃ / te, ne","taṃ, naṃ / tā, tāyo","taṃ, tad / tāni"],["Instrumental","tena / tebhi, tehi","tāya / tābhi, tāhi","tena / tebhi, tehi"],["Dative / Genitive","tassa / tesaṃ, tesānaṃ","tassā, tāya / tāsaṃ, tāsānaṃ","tassa / tesaṃ"],["Ablative","tamhā, tasmā / tehi","tāya / tāhi","tamhā, tasmā / tehi"],["Locative","tamhi, tasmiṃ / tesu","tassaṃ, tāyaṃ / tāsu","tamhi, tasmiṃ / tesu"]],[1,2,3]),
+ tbl("ya — who / which (relative)",["Case","Masculine sg / pl","Feminine sg / pl","Neuter sg / pl"],[["Nominative","yo / ye","yā / yā, yāyo","yaṃ, yad / yāni"],["Accusative","yaṃ / ye","yaṃ / yā, yāyo","yaṃ, yad / yāni"],["Instrumental","yena / yebhi, yehi","yāya / yābhi, yāhi","yena / yehi"],["Dative / Genitive","yassa / yesaṃ","yassā, yāya / yāsaṃ","yassa / yesaṃ"],["Ablative","yamhā, yasmā / yehi","yāya / yāhi","yamhā, yasmā / yehi"],["Locative","yamhi, yasmiṃ / yesu","yassaṃ, yāyaṃ / yāsu","yamhi, yasmiṃ / yesu"]],[1,2,3]),
+ tbl("ima — this",["Case","Masculine sg / pl","Feminine sg / pl","Neuter sg / pl"],[["Nominative","ayaṃ / ime","ayaṃ / imā, imāyo","idaṃ, imaṃ / imāni"],["Accusative","imaṃ / ime","imaṃ / imā, imāyo","idaṃ, imaṃ / imāni"],["Instrumental","iminā, anena / imebhi, imehi","imāya / imābhi, imāhi","iminā, anena / imehi"],["Dative / Genitive","imassa, assa / imesaṃ, esaṃ","imissā, imāya, assā / imāsaṃ","imassa, assa / imesaṃ"],["Ablative","imamhā, imasmā, asmā / imehi","imāya / imāhi","imamhā, imasmā / imehi"],["Locative","imamhi, imasmiṃ, asmiṃ / imesu","imissaṃ, imāyaṃ, assaṃ / imāsu","imamhi, imasmiṃ / imesu"]],[1,2,3]),
+ tbl("eta — that (near you) · amu — yonder",["Case","eta masc / fem / neut (sg)","amu masc / fem / neut (sg)"],[["Nominative","eso / esā / etaṃ, etad","asu, amu / asu / aduṃ"],["Accusative","etaṃ / etaṃ / etaṃ","amuṃ / amuṃ / aduṃ"],["Instrumental","etena / etāya / etena","amunā / amuyā / amunā"],["Dative / Genitive","etassa / etissā, etāya / etassa","amussa, adussa / amussā, amuyā / amussa"],["Ablative","etamhā, etasmā / etāya / etasmā","amumhā, amusmā / amuyā / amusmā"],["Locative","etamhi, etasmiṃ / etissaṃ, etāyaṃ / etasmiṃ","amumhi, amusmiṃ / amuyaṃ / amusmiṃ"]],[1,2],"Plurals follow ta: <span class='pl'>ete, etā, etāni · amū, amū, amūni</span>."),
+ tbl("sabba — all · kiṃ — who? what?",["Case","sabba masc / fem / neut (sg)","kiṃ masc / fem / neut (sg)"],[["Nominative","sabbo / sabbā / sabbaṃ","ko / kā / kiṃ"],["Accusative","sabbaṃ / sabbaṃ / sabbaṃ","kaṃ / kaṃ / kiṃ"],["Instrumental","sabbena / sabbāya / sabbena","kena / kāya / kena"],["Dative / Genitive","sabbassa / sabbassā, sabbāya / sabbassa","kassa, kissa / kassā, kāya / kassa"],["Ablative","sabbamhā, sabbasmā / sabbāya / sabbasmā","kasmā, kamhā / kāya / kasmā"],["Locative","sabbamhi, sabbasmiṃ / sabbāya, sabbāyaṃ / sabbasmiṃ","kasmiṃ, kamhi, kismiṃ, kimhi / kassaṃ, kāyaṃ / kismiṃ"]],[1,2],"Plurals: <span class='pl'>sabbe / sabbā / sabbāni · ke / kā / kāni</span>. <span class='pl'>pubba</span> (former) declines exactly like sabba."),
+ sutta("Vakkalī Sutta · SN — a relative-correlative pair (yo … so)","Yo kho, vakkali, dhammaṃ passati so maṃ passati; yo maṃ passati so dhammaṃ passati.","Whoever sees the Dhamma sees me; whoever sees me sees the Dhamma. (yo relative · so correlative · maṃ acc. of amha)","https://suttacentral.net/sn22.87/en/sujato"),
+]},
+/* ---- WEEK 13 ---- */
+{n:13,title:"Adjectives & Participles",pages:"pp. 82–93",source:"Aṅgulimāla Sutta (MN 86) · Sobhenti Sutta (AN 4.7)",
+topics:["Four categories of adjectives","Pronominal adjectives","Present participles (-nta / -māna)","Past participles","Possessive adjectives (-vantu / -mantu)"],
+lessons:["Lesson 34 · The Adjective in Pāli","Lesson 35 · Participles as Adjectives","Lesson 36 · Possessive Adjectives"],
+secs:[
+ h(34,"Four categories of adjectives"),
+ p("An adjective (<span class='pl'>guṇanāma</span>) qualifies a noun and must agree with it in <b>gender, number and case</b>. The book groups Pāli adjectives into four families:"),
+ list(["<b>Pronominal adjectives</b> — pronouns used adjectivally: <span class='pl'>sabba</span> (all), <span class='pl'>añña</span> (other), <span class='pl'>para</span> (other/foreign), <span class='pl'>katama</span> (which of many), <span class='pl'>eka</span> (one/certain).","<b>Verbal adjectives (participles)</b> — present and past participles: <span class='pl'>gacchanta</span> (going), <span class='pl'>gata</span> (gone).","<b>Ordinary adjectives</b> — simple quality words: <span class='pl'>seta</span> (white), <span class='pl'>mahanta</span> (great), <span class='pl'>pāpa</span> (evil), <span class='pl'>kusala</span> (wholesome), <span class='pl'>dīgha</span> (long).","<b>Possessive adjectives</b> — formed with suffixes <span class='pl'>-vantu</span> / <span class='pl'>-mantu</span>: <span class='pl'>guṇavantu</span> (virtuous), <span class='pl'>satimantu</span> (mindful)."]),
+ note("Agreement in action: <span class='pl'>seto haṃso</span> (white swan, masc.) · <span class='pl'>setā kaṇṇikā</span> (white flower, fem.) · <span class='pl'>setaṃ padumaṃ</span> (white lotus, neut.) — one stem, three gendered forms."),
+ tbl("Pronominal adjectives in sentences",["Pāli","English"],
+ [["So puriso gāmaṃ gacchati.","That man goes to the village."],
+  ["Sabbe sattā bhavantu sukhitattā.","May all beings be happy."],
+  ["Añño bhikkhu āgacchati.","Another monk comes."],
+  ["Katamo maggo nibbānagāmī?","Which path leads to Nibbāna?"],
+  ["Eko samaṇo araññe vasati.","A certain ascetic dwells in the forest."]],[0],null),
+ h(35,"Participles as adjectives"),
+ p("<b>Present participles</b> express an action simultaneous with the main verb — \"while doing\". They are formed with <span class='pl'>-nta</span> or <span class='pl'>-māna</span> added to the present stem, and decline to agree with their noun."),
+ tbl("Present participles",["Verb","Participle (-nta)","Participle (-māna)","Meaning"],
+ [["gacchati","gacchanta","gacchamāna","going"],
+  ["pacati","pacanta","pacamāna","cooking"],
+  ["carati","caranta","caramāna","walking"],
+  ["bhuñjati","bhuñjanta","bhuñjamāna","eating"],
+  ["vadati","vadanta","vadamāna","speaking"]],[0,1,2],"Example: <span class='pl'>Gāmaṃ gacchanto puriso rukkhaṃ passati</span> — while going to the village, the man sees a tree."),
+ p("<b>Past participles</b> express a completed action — \"done, gone\". Most are formed with <span class='pl'>-ta</span> (sometimes <span class='pl'>-na</span>) added to the root, often with sound changes. They serve both as adjectives and as the backbone of narrative prose."),
+ tbl("Common past participles",["Root / Verb","Past participle","Meaning"],
+ [["gacchati (√gam)","gata","gone"],
+  ["karoti (√kar)","kata","done, made"],
+  ["suṇāti (√su)","suta","heard"],
+  ["passati (√dis)","diṭṭha","seen"],
+  ["bhuñjati (√bhuj)","bhutta","eaten"],
+  ["deti (√dā)","dinna","given"],
+  ["pajahati (√hā)","pahīna","abandoned"]],[0,1],"You already know these from the texts: <span class='pl'>Evaṃ me sutaṃ</span> — thus have I heard; <span class='pl'>kataṃ karaṇīyaṃ</span> — done is what had to be done."),
+ h(36,"Possessive adjectives: -vantu / -mantu"),
+ p("The suffixes <span class='pl'>-vantu</span> and <span class='pl'>-mantu</span> mean \"possessing, endowed with\". Nominative singular masculine ends in <span class='pl'>-vā / -mā</span> — forms you meet constantly in the suttas."),
+ tbl("Possessive adjectives",["Stem","Nom. sg.","Meaning"],
+ [["guṇavantu","guṇavā","virtuous (having virtue)"],
+  ["dhanavantu","dhanavā","wealthy"],
+  ["balavantu","balavā","strong"],
+  ["satimantu","satimā","mindful (having sati)"],
+  ["cakkhumantu","cakkhumā","possessed of vision (an epithet of the Buddha)"],
+  ["bandhumantu","bandhumā","having relatives"]],[0,1],"These decline like <span class='pl'>Bhagavantu</span> (Week 5): <span class='pl'>satimā, satimanto, satimatā…</span>"),
+ vocab("Adjective vocabulary",["seta — white","kāḷa — black","ratta — red","mahanta — great","khuddaka — small","dīgha — long","rassa — short","pāpa — evil","kusala — wholesome","bāla — foolish","paṇḍita — wise","dahara — young","mahallaka — old"]),
+ sutta("Saṅgha recollection — a chain of adjectives qualifying one noun","Supaṭipanno bhagavato sāvakasaṅgho, ujuppaṭipanno bhagavato sāvakasaṅgho, ñāyappaṭipanno bhagavato sāvakasaṅgho, sāmīcippaṭipanno bhagavato sāvakasaṅgho.","The Saṅgha of the Blessed One's disciples is practising well, practising uprightly, practising methodically, practising properly. (Each compound adjective agrees with saṅgho — masc. nom. sg.)","https://suttacentral.net/an11.11/en/sujato"),
+]},
+/* ---- WEEK 14 ---- */
+{n:14,title:"Numerals",pages:"pp. 94–102",source:"Sāmaññaphala Sutta (DN 2) · Bālapaṇḍita Sutta (MN 129)",
+topics:["Cardinal numbers 1–100+","Declension of eka, dvi, ti, catu","Numbers as adjectives","Gender in numerals"],
+lessons:["Lesson 37 · Counting in Pāli","Lesson 38 · Declining the Numerals"],
+secs:[
+ h(37,"Cardinal numbers"),
+ p("Numerals 1–4 are fully gendered adjectives; from <span class='pl'>pañca</span> (five) onward one form serves all genders. From 19 upward numerals behave more like nouns."),
+ tbl("Numbers 1–10",["№","Pāli","№","Pāli"],
+ [["1","eka","6","cha"],["2","dvi","7","satta"],["3","ti","8","aṭṭha"],["4","catu","9","nava"],["5","pañca","10","dasa"]],[1,3],null),
+ tbl("Numbers 11–30",["№","Pāli","№","Pāli"],
+ [["11","ekādasa","21","ekavīsati"],["12","dvādasa","22","dvāvīsati / bāvīsati"],["13","terasa","23","tevīsati"],["14","catuddasa / cuddasa","24","catuvīsati"],["15","pañcadasa / paṇṇarasa","25","pañcavīsati"],["16","soḷasa","26","chabbīsati"],["17","sattarasa","27","sattavīsati"],["18","aṭṭhārasa","28","aṭṭhavīsati"],["19","ekūnavīsati","29","ekūnatiṃsati"],["20","vīsati","30","tiṃsati"]],[1,3],"<span class='pl'>ekūna-</span> = \"one less than\": ekūnavīsati = 19, ekūnatiṃsati = 29."),
+ tbl("Tens, hundred, thousand",["№","Pāli","№","Pāli"],
+ [["40","cattālīsati","80","asīti"],["50","paññāsa","90","navuti"],["60","saṭṭhi","100","sata"],["70","sattati","1000","sahassa"]],[1,3],"<span class='pl'>sata</span> and <span class='pl'>sahassa</span> are neuter nouns: <span class='pl'>bhikkhusataṃ</span> — a hundred monks."),
+ h(38,"Declining the numerals"),
+ p("<span class='pl'>eka</span> declines like the pronoun <span class='pl'>ta</span> in all three genders (singular only in the sense \"one\"; plural = \"some\"). The numbers 2–4 decline only in the plural:"),
+ tbl("dvi — two (all genders)",["Case","Form"],
+ [["Nominative / Accusative","dve, duve"],["Instrumental / Ablative","dvīhi, dvībhi"],["Genitive / Dative","dvinnaṃ"],["Locative","dvīsu"]],[1],null),
+ tbl("ti — three",["Case","Masculine","Feminine","Neuter"],
+ [["Nom. / Acc.","tayo","tisso","tīṇi"],["Instr. / Abl.","tīhi, tībhi","tīhi, tībhi","tīhi, tībhi"],["Gen. / Dat.","tiṇṇaṃ, tiṇṇannaṃ","tissannaṃ","tiṇṇaṃ, tiṇṇannaṃ"],["Locative","tīsu","tīsu","tīsu"]],[1,2,3],null),
+ tbl("catu — four",["Case","Masculine","Feminine","Neuter"],
+ [["Nom. / Acc.","cattāro, caturo","catasso","cattāri"],["Instr. / Abl.","catūhi, catūbhi","catūhi, catūbhi","catūhi, catūbhi"],["Gen. / Dat.","catunnaṃ","catassannaṃ","catunnaṃ"],["Locative","catūsu","catūsu","catūsu"]],[1,2,3],null),
+ tbl("pañca — five (one form for all genders)",["Case","Form"],
+ [["Nom. / Acc.","pañca"],["Instr. / Abl.","pañcahi, pañcabhi"],["Gen. / Dat.","pañcannaṃ"],["Locative","pañcasu"]],[1],"6–18 follow the pañca pattern: <span class='pl'>channaṃ, sattannaṃ, aṭṭhannaṃ…</span>"),
+ tbl("Numerals in the canon",["Pāli","English"],
+ [["cattāri ariyasaccāni","the Four Noble Truths"],
+  ["pañca khandhā","the five aggregates"],
+  ["aṭṭhaṅgiko maggo","the eightfold path"],
+  ["dve dhammā","two things"],
+  ["tisso vijjā","the three knowledges"],
+  ["saṭṭhimatte bhikkhū","about sixty monks"]],[0],null),
+ sutta("Bālapaṇḍita Sutta · MN 129 — numerals in narrative","Tīhi, bhikkhave, dhammehi samannāgato bālo veditabbo.","A fool, monks, is to be known by three things. (tīhi — instrumental plural of ti agreeing with dhammehi)","https://suttacentral.net/mn129/en/sujato"),
+]},
+/* ---- WEEK 15 ---- */
+{n:15,title:"Adverbs & Sandhi I",pages:"pp. 103–109",source:"Mahākkhandhaka (Vinaya) · Dhammapada — Paṇḍitavagga",
+topics:["Adverbs from case-forms","Adverbs of time, place & manner","Three kinds of sandhi","Vowel sandhi: Rules 1–3"],
+lessons:["Lesson 39 · The Adverb","Lesson 40 · Sandhi — Part I"],
+secs:[
+ h(39,"Adverbs"),
+ p("Pāli has no separate adverb declension — adverbs are <b>frozen case-forms</b> or indeclinable particles. Recognising the underlying case unlocks the meaning instantly."),
+ tbl("Case-forms used adverbially",["Form","Case","Meaning"],
+ [["cirassa","genitive","after a long time"],
+  ["atthāya","dative","for the sake of"],
+  ["rattiyā","instrumental / locative","by night"],
+  ["sukhena","instrumental","happily, with ease"],
+  ["vegena","instrumental","swiftly"],
+  ["tasmā","ablative","therefore"],
+  ["atīte","locative","in the past, once upon a time"]],[0],null),
+ tbl("Adverbs of time",["Pāli","Meaning"],
+ [["kadā","when?"],["yadā","when (relative)"],["tadā","then"],["sadā","always"],["idāni","now"],["ajja","today"],["suve","tomorrow"],["hiyyo","yesterday"],["pacchā","afterwards"],["puna","again"]],[0],"Relative-correlative again: <span class='pl'>yadā … tadā …</span> — when … then …"),
+ tbl("Adverbs of place & manner",["Pāli","Meaning"],
+ [["idha / ettha","here"],["tattha / tatra","there"],["kattha / kuhiṃ","where?"],["sabbattha","everywhere"],["evaṃ","thus"],["kathaṃ","how?"],["tathā","in that way"],["yathā","in which way, as"],["sanikaṃ","slowly"],["khippaṃ","quickly"]],[0],null),
+ sutta("Dhammapada 79 · Paṇḍitavagga — sadā in verse","Dhammapīti sukhaṃ seti, vippasannena cetasā; ariyappavedite dhamme, sadā ramati paṇḍito.","One who drinks the Dhamma sleeps happily, with a clear mind; the wise one always delights in the Dhamma proclaimed by the noble ones. (sukhaṃ — accusative as adverb · sadā — adverb of time)","https://suttacentral.net/dhp76-89/en/sujato"),
+ h(40,"Sandhi — Part I"),
+ p("<b>Sandhi</b> (junction) is the euphonic merging of sounds where words or word-parts meet. The canon is written with sandhi applied, so you must learn to <b>undo</b> it while reading. Three kinds:"),
+ list(["<b>Sara-sandhi</b> — vowel + vowel junction (the largest group).","<b>Vyañjana-sandhi</b> — vowel + consonant junction.","<b>Niggahita-sandhi</b> — junctions involving <span class='pl'>ṃ</span>."]),
+ tbl("Rule 1 · The first vowel is elided",["Junction","Result"],
+ [["paññā + indriyaṃ","paññindriyaṃ"],
+  ["amanussa + upaddavo","amanussupaddavo"],
+  ["tīṇi + imāni","tīṇimāni"],
+  ["sametu + āyasmā","sametāyasmā"]],[0,1],"The final vowel of the first word drops; the second word's vowel stands."),
+ tbl("Rule 2 · The second vowel is elided (after a dissimilar vowel)",["Junction","Result"],
+ [["chāyā + iva","chāyāva"],
+  ["iti + api","itipi"],
+  ["pāto + eva","pātova"],
+  ["cakkhu + indriyaṃ","cakkhundriyaṃ"]],[0,1],"You know <span class='pl'>itipi</span> from <span class='pl'>Itipi so bhagavā…</span>"),
+ tbl("Rule 3 · a/ā + i/ī → e · a/ā + u/ū → o",["Junction","Result"],
+ [["canda + udayo","candodayo (moonrise)"],
+  ["yathā + udake","yathodake"],
+  ["upa + ikkhati","upekkhati (→ upekkhā)"],
+  ["na + upeti","nopeti"],
+  ["bandhussa + iva","bandhusseva"],
+  ["jina + īritaṃ","jineritaṃ"]],[0,1],"This rule explains everyday words: <span class='pl'>upekkhā</span> = upa + ikkhā!"),
+ note("Practice strategy: whenever a sutta word looks unfamiliar, try splitting it at a long vowel or at e / o — you are probably looking at a sandhi seam."),
+]},
+/* ---- WEEK 16 ---- */
+{n:16,title:"Sandhi II & Course Review",pages:"pp. 110–115",source:"Māgaṇḍiya Sutta (MN 75) · Chaḷābhijāti Sutta (AN 6.57)",
+topics:["Vowel sandhi: Rules 4–7","Consonant insertion & doubling","Prosodic vowel change","Niggahita sandhi","Course review"],
+lessons:["Lesson 41 · Sandhi — Part II · Review"],
+secs:[
+ h(41,"Sandhi — Part II"),
+ tbl("Rule 4 · First elided, second lengthened",["Junction","Result"],
+ [["tatra + ayaṃ","tatrāyaṃ"],
+  ["tathā + upamaṃ","tathūpamaṃ"],
+  ["bahu + upakāro","bahūpakāro"],
+  ["sace + ayaṃ","sacāyaṃ"],
+  ["appassuta + ayaṃ","appassutāyaṃ (puriso balivaddova jīrati — Dhp 152)"]],[0,1],null),
+ tbl("Rule 5 · First lengthened, second elided",["Junction","Result"],
+ [["deva + iti","devāti"],
+  ["vijju + iva","vijjūva"],
+  ["vi + atināmeti","vītināmeti"],
+  ["sādhu + iti","sādhūti"]],[0,1],"This is why quoted speech ends in <span class='pl'>-āti / -ūti</span>: the quoting particle <span class='pl'>iti</span> has merged in."),
+ tbl("Rule 6 · i / ī / e before a vowel → y",["Junction","Result"],
+ [["aggi + agāro","aggyāgāro (fire-hall)"],
+  ["sotthi + atthu","sotthyatthu"],
+  ["me + ayaṃ","myāyaṃ"],
+  ["te + ahaṃ","tyāhaṃ"]],[0,1],null),
+ sutta("Māgaṇḍiya Sutta · MN 75 — Rule 6 in the wild","Evaṃ me sutaṃ — ekaṃ samayaṃ bhagavā kurūsu viharati kammāsadhammaṃ nāma kurūnaṃ nigamo, bhāradvājagottassa brāhmaṇassa agyāgāre tiṇasanthārake.","Thus have I heard — on one occasion the Blessed One was dwelling among the Kurus … in the fire-chamber (agyāgāre = aggi + agāre) of a brahmin of the Bhāradvāja clan, on a spread of grass.","https://suttacentral.net/mn75/en/sujato"),
+ tbl("Rule 7 · o / u before a vowel → v",["Junction","Result"],
+ [["so + ahaṃ","svāhaṃ"],
+  ["su + akkhāto","svākkhāto"],
+  ["su + āgataṃ","svāgataṃ (welcome!)"],
+  ["anu + eti","anveti"],
+  ["yo + ayaṃ","yvāyaṃ"]],[0,1],"<span class='pl'>Svākkhāto bhagavatā dhammo…</span> — now you can parse the Dhamma recollection."),
+ tbl("Rule 8 · Consonant insertion",["Junction","Result"],
+ [["na + idaṃ","nayidaṃ (y inserted)"],
+  ["ti + aṅgikaṃ","tivaṅgikaṃ (v inserted)"],
+  ["ajja + agge","ajjatagge (t inserted)"],
+  ["u + aggo","samuggo (m inserted, with saṃ)"]],[0,1],"Insertable consonants: <span class='pl'>y, v, m, d, n, t, r, ḷ, h</span>."),
+ tbl("Rule 9 · Consonant doubling after a prefix",["Junction","Result"],
+ [["du + karaṃ","dukkaraṃ (hard to do)"],
+  ["rūpa + khandho","rūpakkhandho"],
+  ["vi + ñāṇaṃ","viññāṇaṃ"],
+  ["du + bhikkhaṃ","dubbhikkhaṃ (famine)"],
+  ["ni + phalaṃ","nipphalaṃ"]],[0,1],"An aspirate doubles as unaspirate + aspirate: <span class='pl'>kkh, cch, tth, pph…</span>"),
+ tbl("Rule 10 · Long vowel shortens before a double consonant",["Junction","Result"],
+ [["parā + kkamo","parakkamo (striving)"],
+  ["taṇhā + khayo","taṇhakkhayo"],
+  ["mahā + phalaṃ","mahapphalaṃ"]],[0,1],"Exceptions keep the long vowel: <span class='pl'>vedanākkhandho, paññākkhandho, yathākkamaṃ</span>."),
+ tbl("Rule 11 · Prosodic lengthening / shortening (in verse)",["Example","Note"],
+ [["khantī paramaṃ tapo titikkhā","khanti lengthened for metre"],
+  ["jāyatī soko","jāyati lengthened"],
+  ["bhovādi nāma so hoti","bhovādī shortened"],
+  ["yiṭṭhaṃ va hutaṃ va","iva shortened to va"]],[0],null),
+ tbl("Rule 12 · so / eso may drop o → sa / esa",["Junction","Result"],
+ [["eso dhammo","esa dhammo"],["so muni","sa muni"],["so sīlavā","sa sīlavā"]],[0,1],null),
+ tbl("Rule 13 · Niggahita sandhi",["Junction","Result"],
+ [["dīpaṃ + karo","dīpaṅkaro (ṃ → ṅ before k)"],
+  ["saṃ + ṭhito","saṇṭhito (ṃ → ṇ before ṭ)"],
+  ["taṃ + dhammaṃ","tandhammaṃ (ṃ → n before d)"],
+  ["evaṃ + kho","evaṅkho"],
+  ["dhammaṃ + ca","dhammañca (ṃ → ñ before c)"]],[0,1],"Before a stop, <span class='pl'>ṃ</span> assimilates to the nasal of that stop's vagga — your Week 1 vagga chart pays off here."),
+ h(0,"Course review"),
+ p("You have now covered the complete grammar of the DPBS book: the alphabet and nine cases (W1), noun declensions across all genders and stem-classes (W2–3, 5–7, 9, 11), the full verb system — present, past, future, imperative, optative, absolutives and infinitives (W2–6), the indeclinables — nipātas and upasaggas (W8, 10), pronouns (W12), adjectives and participles (W13), numerals (W14), adverbs and the thirteen sandhi rules (W15–16)."),
+ note("Where next? Read daily. Begin with the Dhammapada alongside a translation, then graduate to the shorter suttas of the Majjhima Nikāya. Use the Digital Pāli Dictionary for every unknown word — parsing is now a skill you own."),
+ sutta("Chaḷābhijāti Sutta · AN 6.57 — reading with every tool you have","Evaṃ me sutaṃ — ekaṃ samayaṃ bhagavā rājagahe viharati gijjhakūṭe pabbate.","Thus have I heard — on one occasion the Blessed One was dwelling at Rājagaha on Vulture Peak mountain. (sandhi: evaṃ + me · locatives: rājagahe, pabbate · viharati: pres. 3rd sg.)","https://suttacentral.net/an6.57/en/sujato"),
+]},
+];
+
+/* ===================== HERO MOTTO ===================== */
+const MOTTO=[["daḷhaṃ","firmly (adverb)"],["paggaṇha","take up! (imperative)"],["vīriyaṃ,","energy (acc.)"],["mā","do not (prohibitive)"],["nivatta","turn back (imperative)"],["abhikkama","advance! (abhi + kama)"]];
+document.getElementById('motto').innerHTML=MOTTO.map(w=>`<span class="w" tabindex="0">${w[0]}<span>${w[1]}</span></span>`).join('');
+
+/* ===================== ALPHABET ===================== */
+const VAGGA=[
+{name:"Kavagga · Guttural",desc:"Produced at the back of the mouth, in the throat.",letters:[["k","kind"],["kh","blackheath"],["g","game"],["gh","big-house"],["ṅ","singer"]],ex:"Kamma (action) · Gati (destiny) · Aṅga (limb)"},
+{name:"Cavagga · Palatal",desc:"The middle of the tongue raised to the hard palate.",letters:[["c","chance"],["ch","witch-hazel"],["j","jam"],["jh","sledge-hammer"],["ñ","signor"]],ex:"Citta (mind) · Jāti (birth) · Paññā (wisdom)"},
+{name:"Ṭavagga · Retroflex",desc:"The tip of the tongue curled back against the roof of the mouth.",letters:[["ṭ","cat"],["ṭh","ant-hill"],["ḍ","bad"],["ḍh","red-hot"],["ṇ","know*"]],ex:"Patiṭṭhā (support) · Saraṇaṃ (refuge)"},
+{name:"Tavagga · Dental",desc:"The tip of the tongue against the upper teeth.",letters:[["t","thumb*"],["th","pot-herb"],["d","then*"],["dh","adherent"],["n","nap"]],ex:"Tathāgata · Dhamma · Dukkha (suffering)"},
+{name:"Pavagga · Labial",desc:"Produced with both lips.",letters:[["p","pat"],["ph","uphill"],["b","bat"],["bh","abhorrence"],["m","mat"]],ex:"Paññā (wisdom) · Buddhaṃ · Phalaṃ (fruit)"}];
+let vgSel=0;
+function renderVagga(){
+ const b=document.getElementById('vaggaBtns');
+ b.innerHTML=VAGGA.map((v,i)=>`<button class="${i===vgSel?'on':''}" onclick="pickVagga(${i})">${v.name}</button>`).join('');
+ const v=VAGGA[vgSel];
+ document.getElementById('vgTitle').textContent=v.name;
+ document.getElementById('vgDesc').textContent=v.desc;
+ document.getElementById('vgLetters').innerHTML=v.letters.map(l=>`<div class="letter">${l[0]}<small>${l[1]}</small></div>`).join('');
+ document.getElementById('vgEx').textContent=v.ex;
+}
+function pickVagga(i){vgSel=i;renderVagga();}
+const PRON=[["a","like a in \"what\""],["ā","like a in \"father\""],["i","like i in \"mint\""],["ī","like ee in \"see\""],["u","like u in \"put\""],["ū","like oo in \"pool\""],["e","like a in \"cage\""],["o","like o in \"no\""],["k","like k in \"kind\""],["kh","like kh in \"blackheath\""],["g","like g in \"game\""],["gh","like gh in \"big-house\""],["ṅ","like ng in \"singer\""],["c","like ch in \"chance\""],["ch","like ch-h in \"witch-hazel\""],["jh","like dge-h in \"sledge-hammer\""],["ñ","like gn in \"signor\""],["ṭ","like t in \"cat\""],["ṭh","like t-h in \"ant-hill\""],["ḍ","like d in \"bad\""],["ḍh","like d-h in \"red-hot\""],["ṇ","like n in \"know\" (retroflex)"],["t","like th in \"thumb\""],["th","like t-h in \"pot-herb\""],["d","like d in \"then\" (dental)"],["dh","like dh in \"adherent\""],["ph","like p-h in \"uphill\""],["bh","like bh in \"abhorrence\""],["y","like y in \"yes\""],["s","like s in \"sight\""],["ṃ","like ng in \"sing\""]];
+document.getElementById('pronList').innerHTML=PRON.map(p=>`<li><span class="pl">${p[0]}</span> — ${p[1]}</li>`).join('');
+
+/* ===================== PROGRESS ===================== */
+let done=[];
+try{done=JSON.parse(localStorage.getItem('dpbs-progress')||'[]');if(!Array.isArray(done))done=[];}catch(e){done=[];}
+function saveDone(){try{localStorage.setItem('dpbs-progress',JSON.stringify(done));}catch(e){}}
+function updateProgress(){
+ const n=done.length,pc=Math.round(n/16*100);
+ document.getElementById('progLbl').textContent=n+' / 16';
+ document.getElementById('progBarTop').style.width=pc+'%';
+ document.getElementById('progTxt').textContent=n+' of 16 weeks complete';
+ document.getElementById('progBar').style.width=pc+'%';
+ document.getElementById('progPct').textContent=pc+'%';
+}
+
+/* ===================== NAV ===================== */
+function go(page){
+ document.querySelectorAll('.page').forEach(s=>s.classList.remove('on'));
+ document.getElementById('page-'+page).classList.add('on');
+ document.querySelectorAll('#navLinks button').forEach(b=>b.classList.toggle('on',b.dataset.nav===page));
+ document.getElementById('navLinks').classList.remove('open');
+ window.scrollTo({top:0,behavior:'instant'});
+ if(page==='curriculum')renderFolios();
+}
+
+/* ===================== CURRICULUM FOLIOS ===================== */
+function topicsOf(w){return Array.isArray(w.topics)?w.topics.join(' · '):w.topics;}
+function renderFolios(){
+ const g=document.getElementById('folioGrid');
+ g.innerHTML=WEEKS.map(w=>`<button class="folio ${done.includes(w.n)?'done':''}" onclick="openWeek(${w.n})">
+  <div class="top"><span class="wk">Week ${w.n}</span><span class="pg">${w.pages}</span></div>
+  <h3>${w.title}</h3>
+  <div class="topics">${topicsOf(w)}</div>
+  <div class="sut">${w.source}</div>
+  <div class="state"><span>${w.lessons.length} lesson${w.lessons.length>1?'s':''}</span><span class="done-ic">✓</span></div>
+ </button>`).join('');
+ updateProgress();
+}
+
+/* ===================== WEEK RENDERER ===================== */
+let curWeek=1;
+function esc(s){return s==null?'':String(s);}
+function renderSec(s){
+ switch(s.k){
+  case 'h':{
+   let no = typeof s.no==='number' ? (s.no>0?'Lesson '+s.no:'§') : s.no;
+   return `</div></div><div class="lesson"><div class="l-head"><span class="no">${no}</span><h3>${s.title}</h3></div><div>`;
+  }
+  case 'p':return `<p>${s.html}</p>`;
+  case 'note':return `<div class="note">${s.html}</div>`;
+  case 'list':return `<ul class="plain">${s.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+  case 'chips':return `<div class="chips">${s.items.map(i=>`<span class="chip"><span class="pl">${i}</span></span>`).join('')}</div>`;
+  case 'vocab':{
+   const chips=s.items.map(it=>{
+    let w,g;
+    if(Array.isArray(it)){w=it[0];g=it[1];}else{const parts=it.split(' — ');w=parts[0];g=parts[1]||'';}
+    return `<span class="chip"><span class="pl">${w}</span>${g?` <small>· ${g}</small>`:''}</span>`;
+   }).join('');
+   return `<p style="margin-bottom:4px"><b>${s.title}</b></p><div class="chips">${chips}</div>`;
+  }
+  case 'decl':{
+   const rows=CASES.map((c,i)=>`<tr><td><b>${c[0]}</b><br><small style="color:var(--ink-soft)">${c[1]}</small></td><td class="pl">${esc(s.sg[i])}</td><td class="pl">${esc(s.pl[i])}</td></tr>`).join('');
+   return `<div class="tbl-wrap"><table><caption>${s.title}</caption><thead><tr><th>Case (vibhatti)</th><th>Singular</th><th>Plural</th></tr></thead><tbody>${rows}</tbody></table></div>${s.note?`<div class="note">${s.note}</div>`:''}`;
+  }
+  case 'tbl':{
+   const head=`<tr>${s.head.map(h=>`<th>${h}</th>`).join('')}</tr>`;
+   const rows=s.rows.map(r=>`<tr>${r.map((c,i)=>`<td${s.pali.includes(i)?' class="pl"':''}>${c}</td>`).join('')}</tr>`).join('');
+   return `<div class="tbl-wrap"><table><caption>${s.title}</caption><thead>${head}</thead><tbody>${rows}</tbody></table></div>${s.note?`<div class="note">${s.note}</div>`:''}`;
+  }
+  case 'sutta':return `<div class="sutta"><div class="s-src">${s.src}</div><div class="s-pali">${s.pali}</div><div class="s-en">${s.en}</div>${s.link?`<a href="${s.link}" target="_blank" rel="noopener">Read the full sutta on SuttaCentral →</a>`:''}</div>`;
+  default:return '';
+ }
+}
+function openWeek(n){
+ curWeek=n;
+ const w=WEEKS.find(x=>x.n===n);
+ const isDone=done.includes(n);
+ let inner=w.secs.map(renderSec).join('');
+ /* renderSec for 'h' closes the previous lesson card and opens a new one; bootstrap the first */
+ inner=`<div class="lesson" style="display:none"><div>${inner}</div></div>`;
+ document.getElementById('weekBody').innerHTML=`
+  <button class="crumb" onclick="go('curriculum')">← Back to the 16-week path</button>
+  <div class="wk-head" data-n="${String(n).padStart(2,'0')}">
+   <span class="eyebrow">Week ${n} · ${w.pages} · ${w.lessons.length} lesson${w.lessons.length>1?'s':''}</span>
+   <h2>${w.title}</h2>
+   <div class="meta"><span><b>Reading:</b> ${w.source}</span></div>
+   <div class="meta" style="margin-top:8px"><span><b>Lessons:</b> ${w.lessons.join(' · ')}</span></div>
+   <div class="wk-tools">
+    <button class="toggle" id="pracTgl" onclick="togglePractice()"><span class="sw"></span> Practice mode — hide Pāli forms</button>
+   </div>
+  </div>
+  <div id="wkContent">${inner}</div>
+  <div class="wk-foot">
+   <button class="mark-btn ${isDone?'':'undone'}" onclick="toggleDone(${n})">${isDone?'✓ Week complete — tap to undo':'Mark week '+n+' complete'}</button>
+   <div class="pn">
+    <button ${n===1?'disabled':''} onclick="openWeek(${n-1})">← Week ${n-1||1}</button>
+    <button ${n===16?'disabled':''} onclick="openWeek(${n+1<17?n+1:16})">Week ${n+1<17?n+1:16} →</button>
+   </div>
+  </div>`;
+ document.querySelectorAll('.page').forEach(s=>s.classList.remove('on'));
+ document.getElementById('page-week').classList.add('on');
+ document.querySelectorAll('#navLinks button').forEach(b=>b.classList.toggle('on',b.dataset.nav==='curriculum'));
+ document.getElementById('navLinks').classList.remove('open');
+ window.scrollTo({top:0,behavior:'instant'});
+}
+function togglePractice(){
+ const t=document.getElementById('pracTgl');
+ const c=document.getElementById('wkContent');
+ t.classList.toggle('on');
+ c.classList.toggle('practice');
+ c.querySelectorAll('td.pl').forEach(td=>td.classList.remove('shown'));
+}
+document.addEventListener('click',e=>{
+ const td=e.target.closest('td.pl');
+ if(td&&td.closest('.practice'))td.classList.toggle('shown');
+});
+function toggleDone(n){
+ if(done.includes(n))done=done.filter(x=>x!==n);else done.push(n);
+ saveDone();updateProgress();openWeek(n);
+ window.scrollTo({top:document.body.scrollHeight,behavior:'instant'});
+}
+
+/* ===================== QUICK REFERENCE ===================== */
+function renderReference(){
+ const caseRows=CASES.map(c=>`<tr><td class="pl"><b>${c[0]}</b></td><td>${c[1]}</td></tr>`).join('');
+ document.getElementById('refBody').innerHTML=`
+ <div class="sec-head"><span class="eyebrow">Cheat Sheets</span><h2>Quick reference</h2>
+ <p>The whole grammar on one page — the nine cases, the five main verb conjugations, the declension endings and the thirteen sandhi rules. Open the relevant week for full paradigms and canonical examples.</p></div>
+
+ <div class="lesson"><div class="l-head"><span class="no">§ 1</span><h3>The nine cases (vibhatti)</h3></div>
+ <div class="tbl-wrap"><table><thead><tr><th>Pāli name</th><th>Function</th></tr></thead><tbody>${caseRows}</tbody></table></div></div>
+
+ <div class="lesson"><div class="l-head"><span class="no">§ 2</span><h3>Verb endings — active voice</h3></div>
+ <div class="tbl-wrap"><table><thead><tr><th>Person</th><th>Present (Vattamānā)</th><th>Past (Ajjatanī)</th><th>Future (Bhavissanti)</th><th>Imperative (Pañcamī)</th><th>Optative (Sattamī)</th></tr></thead><tbody>
+ <tr><td>3rd sg. / pl.</td><td class="pl">-ti / -nti</td><td class="pl">-i / -iṃsu, -uṃ</td><td class="pl">-issati / -issanti</td><td class="pl">-tu / -antu</td><td class="pl">-eyya / -eyyuṃ</td></tr>
+ <tr><td>2nd sg. / pl.</td><td class="pl">-si / -tha</td><td class="pl">-i, -o / -ittha</td><td class="pl">-issasi / -issatha</td><td class="pl">-hi, — / -tha</td><td class="pl">-eyyāsi / -eyyātha</td></tr>
+ <tr><td>1st sg. / pl.</td><td class="pl">-mi / -ma</td><td class="pl">-iṃ / -imhā</td><td class="pl">-issāmi / -issāma</td><td class="pl">-mi / -ma</td><td class="pl">-eyyāmi / -eyyāma</td></tr>
+ </tbody></table></div>
+ <div class="note">Model verb: <span class="pl">paca</span> — pacati, paci, pacissati, pacatu, paceyya. Weeks 2–6 give the full tables.</div></div>
+
+ <div class="lesson"><div class="l-head"><span class="no">§ 3</span><h3>Declension at a glance — nominative singular endings</h3></div>
+ <div class="tbl-wrap"><table><thead><tr><th>Stem</th><th>Gender</th><th>Model</th><th>Nom. sg.</th><th>Week</th></tr></thead><tbody>
+ <tr><td class="pl">-a</td><td>masc.</td><td class="pl">Buddha</td><td class="pl">Buddho</td><td>2</td></tr>
+ <tr><td class="pl">-a</td><td>neut.</td><td class="pl">citta</td><td class="pl">cittaṃ</td><td>9</td></tr>
+ <tr><td class="pl">-ā</td><td>fem.</td><td class="pl">kaññā</td><td class="pl">kaññā</td><td>7</td></tr>
+ <tr><td class="pl">-i</td><td>masc.</td><td class="pl">gahapati</td><td class="pl">gahapati</td><td>3</td></tr>
+ <tr><td class="pl">-i</td><td>fem.</td><td class="pl">ratti</td><td class="pl">ratti</td><td>7</td></tr>
+ <tr><td class="pl">-i</td><td>neut.</td><td class="pl">aṭṭhi</td><td class="pl">aṭṭhi</td><td>11</td></tr>
+ <tr><td class="pl">-ī</td><td>masc.</td><td class="pl">pakkhī</td><td class="pl">pakkhī</td><td>4</td></tr>
+ <tr><td class="pl">-ī</td><td>fem.</td><td class="pl">kumārī</td><td class="pl">kumārī</td><td>9</td></tr>
+ <tr><td class="pl">-u</td><td>masc.</td><td class="pl">bhikkhu</td><td class="pl">bhikkhu</td><td>5</td></tr>
+ <tr><td class="pl">-u</td><td>fem.</td><td class="pl">sassu / mātu</td><td class="pl">sassu / mātā</td><td>9</td></tr>
+ <tr><td class="pl">-u</td><td>neut.</td><td class="pl">āyu</td><td class="pl">āyu</td><td>11</td></tr>
+ <tr><td class="pl">-ū</td><td>masc.</td><td class="pl">sabbaññū</td><td class="pl">sabbaññū</td><td>7</td></tr>
+ <tr><td class="pl">-ū</td><td>fem.</td><td class="pl">vadhū</td><td class="pl">vadhū</td><td>9</td></tr>
+ <tr><td class="pl">-o</td><td>masc.</td><td class="pl">go</td><td class="pl">go</td><td>7</td></tr>
+ <tr><td class="pl">-antu</td><td>masc.</td><td class="pl">Bhagavantu</td><td class="pl">Bhagavā</td><td>5</td></tr>
+ <tr><td class="pl">mano-group</td><td>neut.</td><td class="pl">mano</td><td class="pl">mano</td><td>11</td></tr>
+ </tbody></table></div></div>
+
+ <div class="lesson"><div class="l-head"><span class="no">§ 4</span><h3>The thirteen sandhi rules</h3></div>
+ <div class="tbl-wrap"><table><thead><tr><th>#</th><th>Rule</th><th>Example</th></tr></thead><tbody>
+ <tr><td>1</td><td>First vowel elided</td><td class="pl">paññā + indriyaṃ → paññindriyaṃ</td></tr>
+ <tr><td>2</td><td>Second vowel elided</td><td class="pl">iti + api → itipi</td></tr>
+ <tr><td>3</td><td>a/ā + i → e · a/ā + u → o</td><td class="pl">canda + udayo → candodayo</td></tr>
+ <tr><td>4</td><td>First elided, second lengthened</td><td class="pl">tatra + ayaṃ → tatrāyaṃ</td></tr>
+ <tr><td>5</td><td>First lengthened, second elided</td><td class="pl">deva + iti → devāti</td></tr>
+ <tr><td>6</td><td>i / ī / e → y before a vowel</td><td class="pl">aggi + agāro → aggyāgāro</td></tr>
+ <tr><td>7</td><td>o / u → v before a vowel</td><td class="pl">su + āgataṃ → svāgataṃ</td></tr>
+ <tr><td>8</td><td>Consonant insertion (y v m d n t r ḷ h)</td><td class="pl">na + idaṃ → nayidaṃ</td></tr>
+ <tr><td>9</td><td>Consonant doubling after a prefix</td><td class="pl">du + karaṃ → dukkaraṃ</td></tr>
+ <tr><td>10</td><td>Long vowel shortens before a double</td><td class="pl">taṇhā + khayo → taṇhakkhayo</td></tr>
+ <tr><td>11</td><td>Prosodic length change (verse)</td><td class="pl">khantī paramaṃ tapo</td></tr>
+ <tr><td>12</td><td>so / eso → sa / esa</td><td class="pl">eso dhammo → esa dhammo</td></tr>
+ <tr><td>13</td><td>Niggahita ṃ assimilates to the vagga nasal</td><td class="pl">dīpaṃ + karo → dīpaṅkaro</td></tr>
+ </tbody></table></div>
+ <div class="note">Full worked examples and the canonical quotations: Weeks 15 &amp; 16.</div></div>
+
+ <div class="lesson"><div class="l-head"><span class="no">§ 5</span><h3>The twenty upasagga (verbal prefixes)</h3></div>
+ <div class="chips">${["pa","parā","ni","nī","u","du","saṃ","vi","ava","anu","pari","adhi","abhi","pati","su","ā","ati","api","apa","upa"].map(u=>`<span class="chip"><span class="pl">${u}</span></span>`).join('')}</div>
+ <div class="note">One root, many meanings — <span class="pl">√hara</span>: harati (carries) · āharati (brings) · nīharati (takes out) · saṃharati (collects) · pariharati (protects) · viharati (dwells). Full table in Week 10.</div></div>`;
+}
+
+/* ===================== INIT ===================== */
+renderVagga();
+renderFolios();
+renderReference();
+updateProgress();
+</script>
+</body>
+</html>
