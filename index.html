@@ -216,6 +216,30 @@ td.mean{color:var(--ink-soft)}
 .pron-list li{break-inside:avoid;margin-bottom:7px;list-style:none;border-bottom:1px dotted var(--line);padding-bottom:6px}
 .pron-list .pl{font-size:16.5px;font-weight:700;color:var(--rubric)}
 
+/* ---------- PRONUNCIATION VIDEOS ---------- */
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:16px}
+.video-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.18s}
+.video-card:hover{transform:translateY(-2px);border-color:var(--gold-soft);box-shadow:0 4px 6px rgba(40,35,26,.05),0 18px 38px -14px rgba(40,35,26,.28)}
+.video-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--night-deep)}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-frame .facade{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:var(--night-deep);cursor:pointer;display:block}
+.video-frame .facade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.88;transition:.2s}
+.video-frame .facade::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,27,45,.05) 55%,rgba(22,27,45,.55))}
+.video-frame .facade .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(22,27,45,.82);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;transition:.2s;z-index:2}
+.video-frame .facade .play::before{content:"";display:block;margin-left:5px;border-style:solid;border-width:11px 0 11px 19px;border-color:transparent transparent transparent #eddfb2}
+.video-frame .facade:hover img,.video-frame .facade:focus img{opacity:1;transform:scale(1.03)}
+.video-frame .facade:hover .play,.video-frame .facade:focus .play{background:var(--gold);transform:translate(-50%,-50%) scale(1.08)}
+.video-frame .facade:hover .play::before,.video-frame .facade:focus .play::before{border-left-color:#241c08}
+.video-frame .facade .dur{position:absolute;left:12px;bottom:10px;z-index:2;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#eddfb2}
+.video-info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.video-info .v-tag{align-self:flex-start;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--rubric);background:var(--rubric-soft);border-radius:99px;padding:3px 10px}
+.video-info .v-tag.vowel{color:var(--bodhi);background:var(--bodhi-soft)}
+.video-info .v-tag.gold{color:#8a6a1d;background:var(--gold-faint)}
+.video-info h4{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;line-height:1.25;color:var(--ink)}
+.video-info p{font-size:13px;color:var(--ink-soft);margin:0}
+.video-tip{display:flex;gap:12px;align-items:flex-start;background:var(--gold-faint);border:1px dashed var(--gold-soft);border-radius:12px;padding:14px 16px;margin-top:18px;font-size:13.5px;color:#5d4c22}
+.video-tip .n{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;color:var(--gold);line-height:1;flex:none}
+
 /* ---------- REFERENCE + RESOURCES ---------- */
 .ref-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .ref-card{background:var(--folio);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
@@ -349,6 +373,66 @@ footer .pl{color:#b8a878;font-style:italic}
       <ul class="pron-list" id="pronList"></ul>
       <div class="note">Also: <b>j, n, p, b, m, r, l, v, h</b> are pronounced just as in English. <b>ṃ</b> (niggahīta) sounds like <i>ng</i> in "sing".</div>
     </div>
+
+    <div class="lesson" style="margin-top:26px">
+      <div class="l-head"><span class="no">VIDEO</span><h3>Practise with your ears — vowels &amp; consonants aloud</h3></div>
+      <p>Pāli was an oral language before it was ever written down, so the alphabet must be learnt by <b>listening and repeating</b>, not by reading alone. Play each video, pause after every letter, and say it aloud — first the eight vowels, then the five consonant groups (<span class="pl">vagga</span>).</p>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-frame">
+            <button class="facade" data-vid="rdZwH9YeILA" data-vtitle="Learn Basic Pāli Grammar — Pāli Vowels" aria-label="Play: The eight Pāli vowels">
+              <img src="https://i.ytimg.com/vi/rdZwH9YeILA/hqdefault.jpg" alt="Pāli vowels pronunciation video" loading="lazy">
+              <span class="play" aria-hidden="true"></span>
+              <span class="dur">Plays here — no new tab</span>
+            </button>
+          </div>
+          <div class="video-info">
+            <span class="v-tag vowel">Vowels · Sara</span>
+            <h4>The eight vowels — a ā i ī u ū e o</h4>
+            <p>Short vs long vowels, and why a long vowel takes twice the time of a short one. Repeat each pair aloud: <i>a–ā, i–ī, u–ū</i>.</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-frame">
+            <button class="facade" data-vid="ev2oJunaT20" data-vtitle="The Pāli Alphabet &amp; Pronunciation Guide" aria-label="Play: The full Pāli alphabet and pronunciation guide">
+              <img src="https://i.ytimg.com/vi/ev2oJunaT20/hqdefault.jpg" alt="Pāli alphabet pronunciation video" loading="lazy">
+              <span class="play" aria-hidden="true"></span>
+              <span class="dur">Plays here — no new tab</span>
+            </button>
+          </div>
+          <div class="video-info">
+            <span class="v-tag">Consonants · Byañjana</span>
+            <h4>The full alphabet &amp; where each sound is made</h4>
+            <p>All 33 consonants with mouth-position animations — gutturals, palatals, retroflexes, dentals, labials — and why <span class="pl">ṃ</span> (niggahīta) becomes a nasal.</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLf6RXFuRpeLTjutJCvVRTZrMl-DFV9Yr3&playsinline=1&rel=0" title="Pāli alphabet & pronunciation — letter-by-letter playlist" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <div class="video-info">
+            <span class="v-tag gold">Playlist · Letter by letter</span>
+            <h4>Drill every syllable, one video at a time</h4>
+            <p>A letter-by-letter playlist covering each vowel and consonant sound individually — use the ☰ icon inside the player to pick a letter, all without leaving this page.</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-frame">
+            <button class="facade" data-vid="G3uUZMCwKNE" data-vtitle="Correct way to pronounce Pāli for chanting" aria-label="Play: Correct Pāli pronunciation for chanting">
+              <img src="https://i.ytimg.com/vi/G3uUZMCwKNE/hqdefault.jpg" alt="Pāli chanting pronunciation video" loading="lazy">
+              <span class="play" aria-hidden="true"></span>
+              <span class="dur">Plays here — no new tab</span>
+            </button>
+          </div>
+          <div class="video-info">
+            <span class="v-tag gold">Applied · Chanting</span>
+            <h4>Putting the sounds to work — Pāli for chanting</h4>
+            <p>How correct articulation of retroflex vs dental consonants and double consonants (<span class="pl">mettā, Buddhassa</span>) shapes real recitation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-tip"><span class="n">☞</span><span><b>How to practise.</b> Work in three passes: ① listen to a whole group without speaking; ② replay and repeat each letter in the pause; ③ say the group from memory, then check yourself against the video. Five minutes a day beats one long session — the tongue learns by repetition, exactly as the canon was preserved.</span></div>
+    </div>
   </div>
 </section>
 
@@ -411,7 +495,8 @@ const WEEKS=[
  tbl("Basic sentence structure — Subject + Object + Verb",["Pāli","Analysis"],[["Buddho dhammaṃ deseti.","Buddho (S — the Buddha) + dhammaṃ (O — the Dhamma) + deseti (V — preaches)"],["Sāmaṇero dhammaṃ bhāsati.","The novice monk speaks the Dhamma."],["Buddhena dhammo desito.","The Dhamma is taught by the Buddha — instrumental case Buddhena, 'by the Buddha'."]],[0]),
  tbl("Forming questions",["Question word","Meaning","Canonical example"],[["Kiṃ?","What?","Taṃ kiṃ maññatha Bhaddiya? — What do you think, Bhaddiya?"],["Ko?","Who?","Ko eso? — Who is this?"],["Kathaṃ?","How?","So kathaṃ viharati? — How does he dwell?"],["Kasmā?","Why?","Kasmā dukkhaṃ? — Why is there suffering?"]],[0]),
  h("Lesson 2","Pāli Alphabet — 41 syllables"),
- p("Pāli contains <b>8 vowels</b> (a, ā, i, ī, u, ū, e, o) and <b>33 consonants</b>, grouped by point of articulation. Study the full interactive chart and pronunciation guide on the <b>Alphabet</b> page — it belongs to this week's work."),
+ p("Pāli contains <b>8 vowels</b> (a, ā, i, ī, u, ū, e, o) and <b>33 consonants</b>, grouped by point of articulation. Study the full interactive chart, the pronunciation guide and the <b>practice videos</b> on the <b>Alphabet</b> page — listen to each vowel and consonant group aloud and repeat. It belongs to this week's work."),
+ note("🎧 <b>Listen &amp; repeat:</b> the <b>Alphabet</b> page now includes pronunciation videos for the vowels, the five consonant groups and chanting practice. <a href='#' onclick=\"go('alphabet');return false\">Open the Alphabet page →</a>"),
  tbl("The five articulation groups (vagga)",["Group","Produced at","Letters","Canonical examples"],[["Guttural","Back of the mouth (throat)","k · kh · g · gh · ṅ","Kamma (action), Gati (destiny)"],["Palatal","Middle of tongue at the palate","c · ch · j · jh · ñ","Citta (mind), Jāti (birth)"],["Retroflex","Tip of tongue curled up","ṭ · ṭh · ḍ · ḍh · ṇ","Patiṭṭhā (support), Saraṇaṃ (refuge)"],["Dental","Tip of tongue against teeth","t · th · d · dh · n","Tathāgata, Dhamma, Dukkha"],["Labial","The lips","p · ph · b · bh · m","Paññā (wisdom), Buddhaṃ, Phalaṃ (fruit)"]],[2]),
  h("Lesson 3","Classification of Pāli words — liṅga, nāma, vacana & vibhatti"),
  p("English counts eight parts of speech; Pāli grammarians classify all of them under <b>four</b>:"),
@@ -1063,6 +1148,21 @@ function renderReference(){
  <div class="chips">${["pa","parā","ni","nī","u","du","saṃ","vi","ava","anu","pari","adhi","abhi","pati","su","ā","ati","api","apa","upa"].map(u=>`<span class="chip"><span class="pl">${u}</span></span>`).join('')}</div>
  <div class="note">One root, many meanings — <span class="pl">√hara</span>: harati (carries) · āharati (brings) · nīharati (takes out) · saṃharati (collects) · pariharati (protects) · viharati (dwells). Full table in Week 10.</div></div>`;
 }
+
+/* ===================== PRONUNCIATION VIDEOS — inline click-to-play ===================== */
+document.addEventListener('click',e=>{
+ const f=e.target.closest('.facade');
+ if(!f)return;
+ const id=f.dataset.vid;
+ const ifr=document.createElement('iframe');
+ // playsinline=1 → plays inside the page (even on iPhone); autoplay=1 → starts on this click
+ ifr.src='https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0&modestbranding=1';
+ ifr.title=f.dataset.vtitle||'Pāli pronunciation video';
+ ifr.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+ ifr.setAttribute('allowfullscreen','');
+ ifr.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+ f.replaceWith(ifr);
+});
 
 /* ===================== INIT ===================== */
 renderVagga();
